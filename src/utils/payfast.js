@@ -1,0 +1,76 @@
+import md5 from 'md5';
+
+const MERCHANT_ID = import.meta.env.VITE_PAYFAST_MERCHANT_ID;
+const MERCHANT_KEY = import.meta.env.VITE_PAYFAST_MERCHANT_KEY;
+const PASSPHRASE = import.meta.env.VITE_PAYFAST_PASSPHRASE;
+const PAYFAST_URL = import.meta.env.VITE_PAYFAST_URL;
+
+/**
+ * Equivalent of PHP's urlencode():
+ *  - spaces become +
+ *  - encodes !, ', (, ), *, ~ which JS encodeURIComponent leaves alone
+ */
+function phpUrlencode(str) {
+  return encodeURIComponent(str)
+    .replace(/%20/g, '+')
+    .replace(/!/g, '%21')
+    .replace(/'/g, '%27')
+    .replace(/\(/g, '%28')
+    .replace(/\)/g, '%29')
+    .replace(/\*/g, '%2A')
+    .replace(/~/g, '%7E');
+}
+
+/**
+ * Generate a PayFast MD5 signature from the data object.
+ * Fields must be in the exact order PayFast expects.
+ */
+function generateSignature(data) {
+  let pfOutput = '';
+  for (const [key, val] of Object.entries(data)) {
+    if (val !== undefined && val !== '') {
+      pfOutput += `${key}=${phpUrlencode(String(val).trim())}&`;
+    }
+  }
+  // Remove trailing &
+  pfOutput = pfOutput.slice(0, -1);
+  if (PASSPHRASE) {
+    pfOutput += `&passphrase=${phpUrlencode(PASSPHRASE.trim())}`;
+  }
+  return md5(pfOutput);
+}
+
+/**
+ * Build the full PayFast form data object (with signature) for a checkout.
+ */
+export function buildPayfastData({ items, customer, paymentId }) {
+  const amount = items.reduce((sum, i) => sum + i.price * i.qty, 0);
+  const itemName = items.length === 1
+    ? items[0].name
+    : `Order #${paymentId} (${items.length} items)`;
+  const itemDescription = items.map(i => `${i.qty}x ${i.name}`).join(', ').slice(0, 255);
+
+  const origin = window.location.origin;
+
+  // Field order matters for signature generation
+  const data = {
+    merchant_id: MERCHANT_ID,
+    merchant_key: MERCHANT_KEY,
+    return_url: `${origin}/payment/success`,
+    cancel_url: `${origin}/payment/cancel`,
+    notify_url: `${origin}/payment/notify`,
+    name_first: customer.firstName,
+    name_last: customer.lastName,
+    email_address: customer.email,
+    ...(customer.phone ? { cell_number: customer.phone } : {}),
+    m_payment_id: paymentId,
+    amount: amount.toFixed(2),
+    item_name: itemName.slice(0, 100),
+    item_description: itemDescription,
+  };
+
+  data.signature = generateSignature(data);
+  return data;
+}
+
+export { PAYFAST_URL };
