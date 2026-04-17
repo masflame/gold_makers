@@ -1,9 +1,9 @@
 import md5 from 'md5';
 
-const MERCHANT_ID = import.meta.env.VITE_PAYFAST_MERCHANT_ID;
-const MERCHANT_KEY = import.meta.env.VITE_PAYFAST_MERCHANT_KEY;
-const PASSPHRASE = import.meta.env.VITE_PAYFAST_PASSPHRASE;
-const PAYFAST_URL = import.meta.env.VITE_PAYFAST_URL;
+const MERCHANT_ID = import.meta.env.VITE_PAYFAST_MERCHANT_ID || '10047888';
+const MERCHANT_KEY = import.meta.env.VITE_PAYFAST_MERCHANT_KEY || 'ryg0qnvz5g7ku';
+const PASSPHRASE = import.meta.env.VITE_PAYFAST_PASSPHRASE || 'fhfvindododfdo';
+const PAYFAST_URL = import.meta.env.VITE_PAYFAST_URL || 'https://sandbox.payfast.co.za/eng/process';
 
 /**
  * Equivalent of PHP's urlencode():

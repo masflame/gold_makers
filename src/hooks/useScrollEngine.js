@@ -1,22 +1,30 @@
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 
+const isTouchDevice = () =>
+  typeof window !== 'undefined' &&
+  ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
 /**
  * Initialises Lenis smooth-scroll and a global IntersectionObserver
  * that adds `.is-revealed` to any element carrying `data-scroll`.
  *
  * Call once inside App (or any top-level layout component).
  * Pass `pathname` so the observer re-scans after route changes.
+ *
+ * Lenis is DISABLED on touch devices — it hijacks native scroll
+ * which breaks IntersectionObserver, video autoplay, and input focus.
  */
 export default function useScrollEngine(pathname) {
   const lenisRef = useRef(null);
 
-  /* ── Lenis smooth scroll ─────────────────────────────── */
+  /* ── Lenis smooth scroll (desktop only) ──────────────── */
   useEffect(() => {
+    if (isTouchDevice()) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
       smoothWheel: true,
     });
     lenisRef.current = lenis;
@@ -31,6 +39,7 @@ export default function useScrollEngine(pathname) {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
 

@@ -28,7 +28,7 @@ export default function About() {
     <main className="about-page">
       {/* Hero */}
       <section className="about-hero">
-        <video className="about-hero-video" src={aboutVideo} autoPlay loop muted playsInline />
+        <video className="about-hero-video" src={aboutVideo} autoPlay loop muted playsInline webkit-playsinline="" disablePictureInPicture preload="auto" />
         <div className="about-hero-overlay" />
         <div className="about-hero-content">
           <span className="about-hero-tag">Our Story</span>

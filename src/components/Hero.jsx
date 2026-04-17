@@ -7,6 +7,7 @@ export default function Hero() {
   const videoRef = useRef();
   const contentRef = useRef();
 
+  /* Parallax scroll effect */
   useEffect(() => {
     let ticking = false;
     const onScroll = () => {
@@ -32,6 +33,22 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  /* Force video play on mobile — some browsers block autoplay until interaction */
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const tryPlay = () => {
+      v.play().catch(() => {});
+    };
+    tryPlay();
+    document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+    document.addEventListener('click', tryPlay, { once: true });
+    return () => {
+      document.removeEventListener('touchstart', tryPlay);
+      document.removeEventListener('click', tryPlay);
+    };
+  }, []);
+
   return (
     <section className="hero hero--sticky" ref={heroRef}>
       <video
@@ -42,6 +59,9 @@ export default function Hero() {
         loop
         muted
         playsInline
+        webkit-playsinline=""
+        disablePictureInPicture
+        preload="auto"
       />
       <div className="hero-overlay" />
       <div className="hero-content" ref={contentRef}>
