@@ -45,6 +45,17 @@ export default function useScrollEngine(pathname) {
 
   /* ── Scroll-triggered reveal observer ────────────────── */
   useEffect(() => {
+    // On touch devices, reveal everything immediately —
+    // IntersectionObserver is unreliable on mobile initial load
+    if (isTouchDevice()) {
+      const timer = setTimeout(() => {
+        document
+          .querySelectorAll('[data-scroll]:not(.is-revealed)')
+          .forEach((el) => el.classList.add('is-revealed'));
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

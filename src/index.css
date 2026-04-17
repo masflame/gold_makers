@@ -4686,6 +4686,18 @@ html.lenis, html.lenis body {
 }
 
 /* =========================================
+   TOUCH DEVICES - skip scroll reveal animations
+   (IntersectionObserver is unreliable on mobile)
+   ========================================= */
+@media (hover: none) and (pointer: coarse) {
+  [data-scroll] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================
    REDUCED MOTION - respect user preference
    ========================================= */
 @media (prefers-reduced-motion: reduce) {
