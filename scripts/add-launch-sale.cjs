@@ -4,11 +4,11 @@
  * The current `price` becomes the sale price; `originalPrice` is the higher pre-sale price.
  *
  * Discount tiers:
- *   - Ultra-luxury (>R500k): 8–12% off
- *   - High-luxury (R100k–R500k): 10–18% off
- *   - Mid-range (R30k–R100k): 12–22% off
- *   - Accessible (R5k–R30k): 15–25% off
- *   - Jewellery (non-watch): 15–30% off
+ *   - Ultra-luxury (>R500k): 12–20% off
+ *   - High-luxury (R100k–R500k): 18–28% off
+ *   - Mid-range (R30k–R100k): 22–35% off
+ *   - Accessible (R5k–R30k): 28–40% off
+ *   - Jewellery (non-watch): 25–45% off
  *
  * Run with: node scripts/add-launch-sale.cjs
  */
@@ -37,18 +37,18 @@ function getSalePercent(price, type, brand) {
   const premium = ['Rolex', 'Cartier', 'Van Cleef & Arpels', 'Hublot', 'Omega', 'Panerai'];
 
   if (type === 'watch') {
-    if (ultraPremium.includes(brand)) return pickPercent(8, 15);
-    if (premium.includes(brand)) return pickPercent(10, 18);
-    if (price > 500000) return pickPercent(8, 14);
-    if (price > 100000) return pickPercent(12, 20);
-    if (price > 30000) return pickPercent(15, 22);
-    return pickPercent(15, 25);
+    if (ultraPremium.includes(brand)) return pickPercent(12, 20);
+    if (premium.includes(brand)) return pickPercent(18, 28);
+    if (price > 500000) return pickPercent(12, 22);
+    if (price > 100000) return pickPercent(22, 32);
+    if (price > 30000) return pickPercent(28, 38);
+    return pickPercent(30, 42);
   }
 
   // Jewellery categories
-  if (price > 30000) return pickPercent(12, 22);
-  if (price > 15000) return pickPercent(15, 25);
-  return pickPercent(18, 30);
+  if (price > 30000) return pickPercent(22, 35);
+  if (price > 15000) return pickPercent(28, 40);
+  return pickPercent(32, 45);
 }
 
 function roundPrice(price) {
