@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
 import useScrollEngine from './hooks/useScrollEngine';
+import useVisitorTracker from './hooks/useVisitorTracker';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
@@ -29,6 +30,7 @@ function ScrollToTop() {
 function App() {
   const { pathname } = useLocation();
   useScrollEngine(pathname);
+  useVisitorTracker();
 
   return (
     <>
