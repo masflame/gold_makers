@@ -43,7 +43,10 @@ export default function PaymentSuccess() {
         .eq('order_id', order.paymentId)
         .then(({ error }) => {
           if (error) console.error('Failed to update order status:', error);
+          else console.log('Order status updated to paid:', order.paymentId);
         });
+    } else {
+      console.warn('Supabase update skipped – client:', !!supabase, 'paymentId:', order?.paymentId);
     }
 
     return () => sessionStorage.removeItem('gm_pending_order');

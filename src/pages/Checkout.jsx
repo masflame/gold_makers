@@ -122,11 +122,16 @@ export default function Checkout() {
       status: 'pending',
     };
 
-    try {
-      if (supabase) await supabase.from('Orders').insert([orderPayload]);
-    } catch (err) {
-      console.error('Supabase order insert error:', err);
-      /* Don't block payment if DB insert fails */
+    if (supabase) {
+      try {
+        const { error } = await supabase.from('Orders').insert([orderPayload]);
+        if (error) console.error('Supabase order insert error:', error);
+        else console.log('Order saved to Supabase:', paymentId);
+      } catch (err) {
+        console.error('Supabase network error:', err);
+      }
+    } else {
+      console.warn('Supabase client not initialised – order not saved');
     }
 
     sessionStorage.setItem('gm_pending_order', JSON.stringify({

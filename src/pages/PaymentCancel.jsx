@@ -17,7 +17,10 @@ export default function PaymentCancel() {
         .eq('order_id', order.paymentId)
         .then(({ error }) => {
           if (error) console.error('Failed to update order status:', error);
+          else console.log('Order status updated to cancelled:', order.paymentId);
         });
+    } else {
+      console.warn('Supabase update skipped – client:', !!supabase, 'paymentId:', order?.paymentId);
     }
   }, []);
 
