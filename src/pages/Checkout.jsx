@@ -189,6 +189,7 @@ export default function Checkout() {
                   <label>Email Address *</label>
                   <input
                     type="email" placeholder="you@example.com"
+                    autoComplete="email"
                     value={contact.email}
                     onChange={ev => { setContact(p => ({ ...p, email: ev.target.value })); setErrors(p => ({ ...p, 'contact.email': '' })); }}
                     className={fieldErr('contact.email')}
@@ -199,6 +200,7 @@ export default function Checkout() {
                   <label>Phone Number</label>
                   <input
                     type="tel" placeholder="0XX XXX XXXX (optional)"
+                    autoComplete="tel"
                     value={contact.phone}
                     onChange={ev => { setContact(p => ({ ...p, phone: ev.target.value })); setErrors(p => ({ ...p, 'contact.phone': '' })); }}
                     className={fieldErr('contact.phone')}
@@ -218,6 +220,7 @@ export default function Checkout() {
                   <div className="co-field">
                     <label>First Name *</label>
                     <input type="text" placeholder=""
+                      autoComplete="shipping given-name"
                       value={delivery.firstName}
                       onChange={ev => { setDelivery(p => ({ ...p, firstName: ev.target.value })); setErrors(p => ({ ...p, 'delivery.firstName': '' })); }}
                       className={fieldErr('delivery.firstName')} />
@@ -226,6 +229,7 @@ export default function Checkout() {
                   <div className="co-field">
                     <label>Last Name *</label>
                     <input type="text" placeholder=""
+                      autoComplete="shipping family-name"
                       value={delivery.lastName}
                       onChange={ev => { setDelivery(p => ({ ...p, lastName: ev.target.value })); setErrors(p => ({ ...p, 'delivery.lastName': '' })); }}
                       className={fieldErr('delivery.lastName')} />
@@ -235,12 +239,14 @@ export default function Checkout() {
                 <div className="co-field">
                   <label>Company</label>
                   <input type="text" placeholder="(optional)"
+                    autoComplete="shipping organization"
                     value={delivery.company}
                     onChange={ev => setDelivery(p => ({ ...p, company: ev.target.value }))} />
                 </div>
                 <div className="co-field">
                   <label>Street Address *</label>
                   <input type="text" placeholder=""
+                    autoComplete="shipping address-line1"
                     value={delivery.address}
                     onChange={ev => { setDelivery(p => ({ ...p, address: ev.target.value })); setErrors(p => ({ ...p, 'delivery.address': '' })); }}
                     className={fieldErr('delivery.address')} />
@@ -249,6 +255,7 @@ export default function Checkout() {
                 <div className="co-field">
                   <label>Apartment / Suite / Unit</label>
                   <input type="text" placeholder="(optional)"
+                    autoComplete="shipping address-line2"
                     value={delivery.apartment}
                     onChange={ev => setDelivery(p => ({ ...p, apartment: ev.target.value }))} />
                 </div>
@@ -256,6 +263,7 @@ export default function Checkout() {
                   <div className="co-field">
                     <label>City *</label>
                     <input type="text" placeholder=""
+                      autoComplete="shipping address-level2"
                       value={delivery.city}
                       onChange={ev => { setDelivery(p => ({ ...p, city: ev.target.value })); setErrors(p => ({ ...p, 'delivery.city': '' })); }}
                       className={fieldErr('delivery.city')} />
@@ -264,6 +272,7 @@ export default function Checkout() {
                   <div className="co-field co-field--select">
                     <label>Province *</label>
                     <select
+                      autoComplete="shipping address-level1"
                       value={delivery.province}
                       onChange={ev => { setDelivery(p => ({ ...p, province: ev.target.value })); setErrors(p => ({ ...p, 'delivery.province': '' })); }}
                       className={`${!delivery.province ? 'co-select--placeholder' : ''} ${fieldErr('delivery.province')}`}
@@ -276,6 +285,7 @@ export default function Checkout() {
                   <div className="co-field">
                     <label>Postal Code *</label>
                     <input type="text" placeholder=""
+                      autoComplete="shipping postal-code"
                       value={delivery.postalCode}
                       onChange={ev => { setDelivery(p => ({ ...p, postalCode: ev.target.value })); setErrors(p => ({ ...p, 'delivery.postalCode': '' })); }}
                       className={fieldErr('delivery.postalCode')} />
@@ -338,6 +348,7 @@ export default function Checkout() {
                       <div className="co-field">
                         <label>First Name *</label>
                         <input type="text"
+                          autoComplete="billing given-name"
                           value={billing.firstName}
                           onChange={ev => { setBilling(p => ({ ...p, firstName: ev.target.value })); setErrors(p => ({ ...p, 'billing.firstName': '' })); }}
                           className={fieldErr('billing.firstName')} />
@@ -346,6 +357,7 @@ export default function Checkout() {
                       <div className="co-field">
                         <label>Last Name *</label>
                         <input type="text"
+                          autoComplete="billing family-name"
                           value={billing.lastName}
                           onChange={ev => { setBilling(p => ({ ...p, lastName: ev.target.value })); setErrors(p => ({ ...p, 'billing.lastName': '' })); }}
                           className={fieldErr('billing.lastName')} />
@@ -355,12 +367,14 @@ export default function Checkout() {
                     <div className="co-field">
                       <label>Company</label>
                       <input type="text" placeholder="(optional)"
+                        autoComplete="billing organization"
                         value={billing.company}
                         onChange={ev => setBilling(p => ({ ...p, company: ev.target.value }))} />
                     </div>
                     <div className="co-field">
                       <label>Street Address *</label>
                       <input type="text"
+                        autoComplete="billing address-line1"
                         value={billing.address}
                         onChange={ev => { setBilling(p => ({ ...p, address: ev.target.value })); setErrors(p => ({ ...p, 'billing.address': '' })); }}
                         className={fieldErr('billing.address')} />
@@ -369,6 +383,7 @@ export default function Checkout() {
                     <div className="co-field">
                       <label>Apartment / Suite / Unit</label>
                       <input type="text" placeholder="(optional)"
+                        autoComplete="billing address-line2"
                         value={billing.apartment}
                         onChange={ev => setBilling(p => ({ ...p, apartment: ev.target.value }))} />
                     </div>
@@ -376,6 +391,7 @@ export default function Checkout() {
                       <div className="co-field">
                         <label>City *</label>
                         <input type="text"
+                          autoComplete="billing address-level2"
                           value={billing.city}
                           onChange={ev => { setBilling(p => ({ ...p, city: ev.target.value })); setErrors(p => ({ ...p, 'billing.city': '' })); }}
                           className={fieldErr('billing.city')} />
@@ -384,6 +400,7 @@ export default function Checkout() {
                       <div className="co-field co-field--select">
                         <label>Province *</label>
                         <select
+                          autoComplete="billing address-level1"
                           value={billing.province}
                           onChange={ev => { setBilling(p => ({ ...p, province: ev.target.value })); setErrors(p => ({ ...p, 'billing.province': '' })); }}
                           className={`${!billing.province ? 'co-select--placeholder' : ''} ${fieldErr('billing.province')}`}
@@ -396,6 +413,7 @@ export default function Checkout() {
                       <div className="co-field">
                         <label>Postal Code *</label>
                         <input type="text"
+                          autoComplete="billing postal-code"
                           value={billing.postalCode}
                           onChange={ev => { setBilling(p => ({ ...p, postalCode: ev.target.value })); setErrors(p => ({ ...p, 'billing.postalCode': '' })); }}
                           className={fieldErr('billing.postalCode')} />
