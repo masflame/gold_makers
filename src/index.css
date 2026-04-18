@@ -5318,6 +5318,187 @@ html.lenis, html.lenis body {
 }
 
 /* =============================================
+   FAQ PAGE
+   ============================================= */
+.faq-page {
+  background: var(--cream, #F5F7FA);
+}
+
+/* ── Hero ── */
+.faq-hero {
+  background: var(--black, #1A2B3C);
+  padding: 160px 24px 80px;
+  text-align: center;
+}
+.faq-hero-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.faq-hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+}
+.faq-hero-title {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.faq-hero-subtitle {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── Body ── */
+.faq-body {
+  padding: 60px 24px 40px;
+}
+.faq-container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* ── Section ── */
+.faq-section {
+  margin-bottom: 48px;
+}
+.faq-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border, #D1D9E2);
+}
+.faq-section-icon {
+  color: var(--black, #1A2B3C);
+  flex-shrink: 0;
+}
+.faq-section-header h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--heading, #1D1D1F);
+  letter-spacing: 0.01em;
+}
+
+/* ── Items ── */
+.faq-items {
+  display: flex;
+  flex-direction: column;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border-light, #E2E8F0);
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--heading, #1D1D1F);
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+.faq-question:hover {
+  color: var(--black, #1A2B3C);
+}
+.faq-chevron {
+  flex-shrink: 0;
+  color: var(--text-muted, #718096);
+  transition: transform 0.3s ease;
+}
+.faq-item--open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 0;
+}
+.faq-item--open .faq-answer {
+  max-height: 300px;
+  padding: 0 0 20px;
+}
+.faq-answer p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-light, #4A5568);
+  margin: 0;
+  padding-right: 40px;
+}
+
+/* ── CTA ── */
+.faq-cta {
+  padding: 0 24px 80px;
+}
+.faq-cta-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--border-light, #E2E8F0);
+  padding: 48px 40px;
+  text-align: center;
+}
+.faq-cta-inner h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--heading, #1D1D1F);
+  margin-bottom: 10px;
+}
+.faq-cta-inner > p {
+  font-size: 14px;
+  color: var(--text-muted, #718096);
+  margin-bottom: 28px;
+}
+.faq-cta-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.faq-cta-actions .btn {
+  min-width: 160px;
+  padding: 13px 28px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── FAQ Responsive ── */
+@media (max-width: 640px) {
+  .faq-hero { padding: 130px 20px 60px; }
+  .faq-hero-title { font-size: 30px; }
+  .faq-body { padding: 40px 20px 24px; }
+  .faq-section-header h2 { font-size: 19px; }
+  .faq-question { font-size: 14px; padding: 16px 0; }
+  .faq-answer p { padding-right: 0; }
+  .faq-cta-inner { padding: 36px 24px; }
+  .faq-cta-actions { flex-direction: column; }
+  .faq-cta-actions .btn { width: 100%; }
+}
+
+/* =============================================
    PAYMENT RESULT PAGES – Luxury Redesign
    ============================================= */
 .pr-page {
