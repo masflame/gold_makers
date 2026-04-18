@@ -1,76 +1,149 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { supabase } from '../utils/supabase';
 import { getVisitorId, getSessionId } from '../utils/fingerprint';
 
 /**
- * Tracks page views, scroll depth, time-on-page, breadcrumb, and UTM params.
- * Inserts rows into the Supabase "Visitors" table.
+ * One-row-per-visitor tracker.
+ * Each session (tab) appends pages to a JSONB `sessions` array
+ * so we never create more than one row per unique device.
  */
 export default function useVisitorTracker() {
   const { pathname, search } = useLocation();
   const pageStart = useRef(Date.now());
   const maxScroll = useRef(0);
-  const breadcrumb = useRef(
-    JSON.parse(sessionStorage.getItem('gm_breadcrumb') || '[]'),
-  );
+  const dbRow = useRef(null);
+  const session = useRef(null);
+  const ready = useRef(false);
+  const initCalled = useRef(false);
 
   /* ── Helpers ── */
+  function scrollPct() {
+    const doc = document.documentElement;
+    const h = doc.scrollHeight - doc.clientHeight;
+    return h > 0 ? Math.round((window.scrollY / h) * 100) : 0;
+  }
+
   function getUtm() {
     const p = new URLSearchParams(search);
     return {
-      utm_source: p.get('utm_source') || null,
-      utm_medium: p.get('utm_medium') || null,
-      utm_campaign: p.get('utm_campaign') || null,
+      source: p.get('utm_source') || null,
+      medium: p.get('utm_medium') || null,
+      campaign: p.get('utm_campaign') || null,
     };
   }
 
-  function scrollPct() {
-    const doc = document.documentElement;
-    const scrollTop = window.scrollY;
-    const scrollHeight = doc.scrollHeight - doc.clientHeight;
-    return scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0;
-  }
+  /* ── Persist sessions array to Supabase ── */
+  const persist = useCallback(async (sessions, extra = {}) => {
+    if (!supabase || !dbRow.current) return;
+    const { error } = await supabase
+      .from('Visitors')
+      .update({ sessions, last_seen: new Date().toISOString(), ...extra })
+      .eq('visitor_id', dbRow.current.visitor_id);
+    if (error) console.error('Visitor persist error:', error);
+  }, []);
 
-  async function send(eventType, extra = {}) {
-    if (!supabase) return;
-    const visitorId = await getVisitorId();
-    const sessionId = getSessionId();
-
-    const payload = {
-      visitor_id: visitorId,
-      session_id: sessionId,
-      event_type: eventType,
-      page_url: pathname,
-      page_title: document.title,
-      referrer: document.referrer || null,
-      user_agent: navigator.userAgent,
-      screen_resolution: `${screen.width}x${screen.height}`,
-      language: navigator.language,
-      platform: navigator.platform,
-      breadcrumb: JSON.stringify(breadcrumb.current),
-      ...getUtm(),
-      ...extra,
-    };
-
-    const { error } = await supabase.from('Visitors').insert([payload]);
-    if (error) console.error('Visitor tracking error:', error);
-  }
-
-  /* ── Page-view on route change ── */
+  /* ── Init: fetch or create visitor row, start session ── */
   useEffect(() => {
+    if (!supabase || initCalled.current) return;
+    initCalled.current = true;
+
+    (async () => {
+      const visitorId = await getVisitorId();
+      const sessionId = getSessionId();
+      const now = new Date().toISOString();
+      const utm = getUtm();
+
+      const newSession = {
+        sid: sessionId,
+        ref: document.referrer || null,
+        utm: (utm.source || utm.medium || utm.campaign) ? utm : null,
+        started: now,
+        pages: [{
+          url: pathname,
+          title: document.title,
+          at: now,
+          dur: null,
+          scroll: null,
+        }],
+      };
+
+      // Try to fetch existing visitor
+      const { data: existing } = await supabase
+        .from('Visitors')
+        .select('*')
+        .eq('visitor_id', visitorId)
+        .maybeSingle();
+
+      if (existing) {
+        const sessions = Array.isArray(existing.sessions)
+          ? [...existing.sessions, newSession]
+          : [newSession];
+        dbRow.current = existing;
+
+        const { error } = await supabase
+          .from('Visitors')
+          .update({
+            sessions,
+            visit_count: (existing.visit_count || 0) + 1,
+            last_seen: now,
+          })
+          .eq('visitor_id', visitorId);
+        if (error) console.error('Visitor update error:', error);
+
+        dbRow.current.sessions = sessions;
+      } else {
+        const row = {
+          visitor_id: visitorId,
+          user_agent: navigator.userAgent,
+          screen_resolution: `${screen.width}x${screen.height}`,
+          language: navigator.language,
+          platform: navigator.platform,
+          visit_count: 1,
+          last_seen: now,
+          sessions: [newSession],
+        };
+
+        const { data, error } = await supabase
+          .from('Visitors')
+          .insert([row])
+          .select()
+          .single();
+        if (error) console.error('Visitor insert error:', error);
+        dbRow.current = data || row;
+      }
+
+      session.current = newSession;
+      ready.current = true;
+    })();
+  }, []);
+
+  /* ── Track page changes ── */
+  useEffect(() => {
+    if (!ready.current || !session.current) return;
+
+    const now = new Date().toISOString();
+    const pages = session.current.pages;
+
+    // Close previous page (set duration + scroll)
+    if (pages.length > 0) {
+      const last = pages[pages.length - 1];
+      if (last.dur === null) {
+        last.dur = Math.round((Date.now() - pageStart.current) / 1000);
+        last.scroll = maxScroll.current;
+      }
+    }
+
+    // Add new page
+    pages.push({ url: pathname, title: document.title, at: now, dur: null, scroll: null });
     pageStart.current = Date.now();
     maxScroll.current = 0;
 
-    // Update breadcrumb
-    const crumb = breadcrumb.current;
-    if (crumb[crumb.length - 1] !== pathname) {
-      crumb.push(pathname);
-      sessionStorage.setItem('gm_breadcrumb', JSON.stringify(crumb));
-    }
-
-    send('page_view');
-  }, [pathname]);
+    // Persist
+    const sessions = dbRow.current.sessions;
+    sessions[sessions.length - 1] = session.current;
+    persist(sessions);
+  }, [pathname, persist]);
 
   /* ── Track scroll depth ── */
   useEffect(() => {
@@ -82,55 +155,36 @@ export default function useVisitorTracker() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  /* ── Send exit event with duration + scroll depth on page leave ── */
+  /* ── Exit: finalize last page and persist via keepalive ── */
   useEffect(() => {
     function onExit() {
-      const duration = Math.round((Date.now() - pageStart.current) / 1000);
-      const data = {
-        duration,
-        scroll_depth: maxScroll.current,
-      };
+      if (!ready.current || !dbRow.current || !session.current) return;
 
-      // Use sendBeacon for reliability on page unload
-      if (supabase && navigator.sendBeacon) {
-        const visitorId = localStorage.getItem('gm_visitor_id') || '';
-        const sessionId = sessionStorage.getItem('gm_session_id') || '';
-        const payload = {
-          visitor_id: visitorId,
-          session_id: sessionId,
-          event_type: 'exit',
-          page_url: pathname,
-          page_title: document.title,
-          referrer: document.referrer || null,
-          user_agent: navigator.userAgent,
-          screen_resolution: `${screen.width}x${screen.height}`,
-          language: navigator.language,
-          platform: navigator.platform,
-          breadcrumb: JSON.stringify(breadcrumb.current),
-          ...getUtm(),
-          ...data,
-        };
+      const pages = session.current.pages;
+      if (pages.length > 0) {
+        const last = pages[pages.length - 1];
+        last.dur = Math.round((Date.now() - pageStart.current) / 1000);
+        last.scroll = maxScroll.current;
+      }
 
-        const url = `${import.meta.env.VITE_PROJECT_URL}/rest/v1/Visitors`;
-        const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-        const headers = {
+      const sessions = dbRow.current.sessions;
+      sessions[sessions.length - 1] = session.current;
+
+      const url = `${import.meta.env.VITE_PROJECT_URL}/rest/v1/Visitors?visitor_id=eq.${dbRow.current.visitor_id}`;
+      fetch(url, {
+        method: 'PATCH',
+        headers: {
           apikey: import.meta.env.VITE_PUBLISHABLE_KEY,
           Authorization: `Bearer ${import.meta.env.VITE_PUBLISHABLE_KEY}`,
           'Content-Type': 'application/json',
           Prefer: 'return=minimal',
-        };
-
-        // sendBeacon doesn't support custom headers, so fall back to fetch keepalive
-        fetch(url, {
-          method: 'POST',
-          headers,
-          body: JSON.stringify(payload),
-          keepalive: true,
-        }).catch(() => {});
-      }
+        },
+        body: JSON.stringify({ sessions, last_seen: new Date().toISOString() }),
+        keepalive: true,
+      }).catch(() => {});
     }
 
     window.addEventListener('beforeunload', onExit);
     return () => window.removeEventListener('beforeunload', onExit);
-  }, [pathname, search]);
+  }, [pathname]);
 }
