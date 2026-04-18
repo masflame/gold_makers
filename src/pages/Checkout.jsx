@@ -123,7 +123,10 @@ export default function Checkout() {
         <span className="co-item-name">{p.name}</span>
         <span className="co-item-qty">Qty: {p.qty}</span>
       </div>
-      <span className="co-item-price">{formatPrice(p.price * p.qty)}</span>
+      <span className="co-item-price">
+        {p.originalPrice && <span className="co-item-price-original">{formatPrice(p.originalPrice * p.qty)}</span>}
+        {formatPrice(p.price * p.qty)}
+      </span>
     </div>
   ));
 

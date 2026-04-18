@@ -124,8 +124,9 @@ export default function ProductDetail() {
         <div className="pdp-gallery">
           {/* Hero image */}
           <div className="pdp-hero">
-            {product.condition === 'Unworn' && <span className="pdp-badge">Unworn</span>}
-            {product.condition === 'New' && <span className="pdp-badge">New</span>}
+            {product.originalPrice && <span className="pdp-badge pdp-badge--sale">-{product.salePercent}% OFF</span>}
+            {!product.originalPrice && product.condition === 'Unworn' && <span className="pdp-badge">Unworn</span>}
+            {!product.originalPrice && product.condition === 'New' && <span className="pdp-badge">New</span>}
             {gallery.length > 0 ? (
               <img src={gallery[activeImg]} alt={`${product.name}`} className="pdp-hero-img" />
             ) : (
@@ -165,7 +166,15 @@ export default function ProductDetail() {
           </div>
 
           <div className="pdp-info-price">
-            {formatPrice(product.price, product.currency)}
+            {product.originalPrice ? (
+              <>
+                <span className="pdp-price-original">{formatPrice(product.originalPrice, product.currency)}</span>
+                <span className="pdp-price-sale">{formatPrice(product.price, product.currency)}</span>
+                <span className="pdp-price-badge">-{product.salePercent}% Launch Sale</span>
+              </>
+            ) : (
+              formatPrice(product.price, product.currency)
+            )}
           </div>
           <span className="pdp-info-tax">Tax included. Shipping calculated at checkout.</span>
 

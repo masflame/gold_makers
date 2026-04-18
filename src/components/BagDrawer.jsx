@@ -71,7 +71,10 @@ export default function BagDrawer() {
                           <Plus size={12} />
                         </button>
                       </div>
-                      <span className="bag-item-price">{formatPrice(p.price * p.qty, p.currency)}</span>
+                      <span className="bag-item-price">
+                        {p.originalPrice && <span className="bag-item-price-original">{formatPrice(p.originalPrice * p.qty, p.currency)}</span>}
+                        {formatPrice(p.price * p.qty, p.currency)}
+                      </span>
                     </div>
                   </div>
                   <button className="bag-item-remove" onClick={() => removeItem(p.id)} aria-label="Remove">

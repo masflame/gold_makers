@@ -850,6 +850,10 @@ video::-webkit-media-controls-start-playback-button {
   padding: 3px 7px;
   z-index: 4;
 }
+.product-badge--sale {
+  background: #c41e3a;
+  color: #fff;
+}
 .product-wishlist {
   position: absolute;
   top: 8px;
@@ -946,6 +950,28 @@ video::-webkit-media-controls-start-playback-button {
   font-weight: 700;
   color: var(--heading);
   letter-spacing: -0.2px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.product-price-original {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 11px;
+}
+.product-price-sale {
+  color: #c41e3a;
+  font-weight: 700;
+}
+.product-price-badge {
+  font-size: 8px;
+  font-weight: 700;
+  background: #c41e3a;
+  color: #fff;
+  padding: 1px 4px;
+  letter-spacing: 0.3px;
 }
 
 /* --- Explore button --- */
@@ -1961,6 +1987,10 @@ video::-webkit-media-controls-start-playback-button {
   padding: 4px 10px;
   z-index: 2;
 }
+.pdp-badge--sale {
+  background: #c41e3a;
+  color: #fff;
+}
 
 /* Collage grid – CSS columns masonry */
 .pdp-collage {
@@ -2049,6 +2079,29 @@ video::-webkit-media-controls-start-playback-button {
   font-weight: 600;
   color: var(--heading);
   margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pdp-price-original {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 20px;
+}
+.pdp-price-sale {
+  color: #c41e3a;
+  font-weight: 700;
+}
+.pdp-price-badge {
+  font-size: 11px;
+  font-weight: 700;
+  background: #c41e3a;
+  color: #fff;
+  padding: 3px 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 .pdp-info-tax {
   display: block;
@@ -2522,6 +2575,16 @@ video::-webkit-media-controls-start-playback-button {
   font-size: 13px;
   font-weight: 700;
   color: var(--heading);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.bag-item-price-original {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 10px;
 }
 .bag-item-remove {
   position: absolute;
@@ -5105,6 +5168,16 @@ html.lenis, html.lenis body {
   color: var(--black);
   white-space: nowrap;
   letter-spacing: 0.02em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.co-item-price-original {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 11px;
 }
 
 /* ── Totals (shared) ── */

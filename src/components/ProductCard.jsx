@@ -66,7 +66,10 @@ export default memo(function ProductCard({ product }) {
           icon
         )}
       </div>
-      {product.condition === 'New' && (
+      {product.originalPrice && (
+        <span className="product-badge product-badge--sale">-{product.salePercent}%</span>
+      )}
+      {!product.originalPrice && product.condition === 'New' && (
         <span className="product-badge">New</span>
       )}
       <button
@@ -110,7 +113,17 @@ export default memo(function ProductCard({ product }) {
             ) : null}
           </div>
         )}
-        <div className="product-price">{formatPrice(product.price, product.currency)}</div>
+        <div className="product-price">
+          {product.originalPrice ? (
+            <>
+              <span className="product-price-original">{formatPrice(product.originalPrice, product.currency)}</span>
+              <span className="product-price-sale">{formatPrice(product.price, product.currency)}</span>
+              <span className="product-price-badge">-{product.salePercent}%</span>
+            </>
+          ) : (
+            formatPrice(product.price, product.currency)
+          )}
+        </div>
         <span className="product-explore">
           Explore <ArrowRight size={13} strokeWidth={2} />
         </span>
