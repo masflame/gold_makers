@@ -1,7 +1,26 @@
+import { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { X, ArrowLeft, ShoppingBag, Shield } from 'lucide-react';
+import { supabase } from '../utils/supabase';
 
 export default function PaymentCancel() {
+  const order = useMemo(() => {
+    try { return JSON.parse(sessionStorage.getItem('gm_pending_order')); }
+    catch { return null; }
+  }, []);
+
+  useEffect(() => {
+    if (order?.paymentId) {
+      supabase
+        .from('Orders')
+        .update({ status: 'cancelled' })
+        .eq('order_id', order.paymentId)
+        .then(({ error }) => {
+          if (error) console.error('Failed to update order status:', error);
+        });
+    }
+  }, []);
+
   return (
     <main className="pr-page">
       <div className="pr-container">

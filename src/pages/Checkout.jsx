@@ -4,6 +4,7 @@ import { ShieldCheck, Lock, ChevronRight, Truck, ChevronDown } from 'lucide-reac
 import { useBag } from '../context/BagContext';
 import { products, formatPrice } from '../data/products';
 import { buildPayfastData, PAYFAST_URL } from '../utils/payfast';
+import { supabase } from '../utils/supabase';
 
 const SA_PROVINCES = [
   'Eastern Cape', 'Free State', 'Gauteng', 'KwaZulu-Natal',
@@ -78,7 +79,7 @@ export default function Checkout() {
 
   function fieldErr(key) { return errors[key] ? 'co-input--error' : ''; }
 
-  function handleSubmit(ev) {
+  async function handleSubmit(ev) {
     ev.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
@@ -92,6 +93,41 @@ export default function Checkout() {
       phone: contact.phone,
     };
     const data = buildPayfastData({ items: bagProducts, customer, paymentId });
+
+    /* ── Save order to Supabase ── */
+    const orderPayload = {
+      order_id: paymentId,
+      first_name: delivery.firstName,
+      last_name: delivery.lastName,
+      email: contact.email,
+      contact: contact.phone || '',
+      item: JSON.stringify(
+        bagProducts.map(p => ({
+          id: p.id, brand: p.brand, name: p.name,
+          qty: p.qty, price: p.price,
+          ...(p.originalPrice ? { originalPrice: p.originalPrice } : {}),
+        }))
+      ),
+      description: bagProducts.map(p => `${p.brand} ${p.name} x${p.qty}`).join(', '),
+      quantity: bagProducts.reduce((s, p) => s + p.qty, 0),
+      amount: String(subtotal),
+      country: delivery.country,
+      street_address: delivery.address,
+      apartment: delivery.apartment || '',
+      city: delivery.city,
+      province: delivery.province,
+      postal_code: delivery.postalCode,
+      company: delivery.company || '',
+      device: navigator.userAgent,
+      status: 'pending',
+    };
+
+    try {
+      await supabase.from('Orders').insert([orderPayload]);
+    } catch (err) {
+      console.error('Supabase order insert error:', err);
+      /* Don't block payment if DB insert fails */
+    }
 
     sessionStorage.setItem('gm_pending_order', JSON.stringify({
       paymentId,

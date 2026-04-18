@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Check, ShoppingBag, ArrowRight, Mail, Package, Shield } from 'lucide-react';
 import { useBag } from '../context/BagContext';
 import { products, formatPrice } from '../data/products';
+import { supabase } from '../utils/supabase';
 
 export default function PaymentSuccess() {
   const { clearBag } = useBag();
@@ -33,6 +34,18 @@ export default function PaymentSuccess() {
 
   useEffect(() => {
     clearBag();
+
+    /* Mark the order as paid in Supabase */
+    if (order?.paymentId) {
+      supabase
+        .from('Orders')
+        .update({ status: 'paid' })
+        .eq('order_id', order.paymentId)
+        .then(({ error }) => {
+          if (error) console.error('Failed to update order status:', error);
+        });
+    }
+
     return () => sessionStorage.removeItem('gm_pending_order');
   }, [clearBag]);
 
