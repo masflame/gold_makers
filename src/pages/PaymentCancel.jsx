@@ -1,28 +1,41 @@
 import { Link } from 'react-router-dom';
-import { XCircle, ArrowLeft, ShoppingBag } from 'lucide-react';
+import { X, ArrowLeft, ShoppingBag, Shield } from 'lucide-react';
 
 export default function PaymentCancel() {
   return (
-    <main className="payment-result-page">
-      <div className="payment-result-card payment-result--cancel">
-        <div className="payment-result-icon">
-          <XCircle size={56} strokeWidth={1.5} />
+    <main className="pr-page">
+      <div className="pr-container">
+        {/* Hero */}
+        <div className="pr-hero">
+          <div className="pr-checkmark pr-checkmark--cancel">
+            <div className="pr-checkmark-ring pr-checkmark-ring--cancel" />
+            <X size={30} strokeWidth={2.5} />
+          </div>
+          <h1 className="pr-title">Payment Not Completed</h1>
+          <p className="pr-subtitle">
+            Your order was not processed and no charges have been made.
+            <br />Your items are still waiting in your bag.
+          </p>
         </div>
-        <h1>Payment Cancelled</h1>
-        <p className="payment-result-msg">
-          Your payment was not completed. No charges have been made.
-        </p>
-        <p className="payment-result-note">
-          Your items are still in your bag — you can try again whenever you're ready.
-        </p>
 
-        <div className="payment-result-actions">
-          <Link to="/checkout" className="btn btn-primary">
+        {/* Reassurance card */}
+        <div className="pr-card pr-card--cancel">
+          <div className="pr-cancel-reassure">
+            <Shield size={20} />
+            <div>
+              <strong>Your information is secure</strong>
+              <p>No payment was taken. You can safely return to checkout whenever you're ready.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Actions */}
+        <div className="pr-actions">
+          <Link to="/checkout" className="btn btn-primary pr-btn-primary">
             <ArrowLeft size={16} />
             Return to Checkout
           </Link>
-          <Link to="/shop" className="btn btn-outline">
-            <ShoppingBag size={16} />
+          <Link to="/shop" className="pr-btn-link">
             Continue Shopping
           </Link>
         </div>

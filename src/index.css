@@ -5318,85 +5318,296 @@ html.lenis, html.lenis body {
 }
 
 /* =============================================
-   PAYMENT RESULT PAGES (Success / Cancel)
+   PAYMENT RESULT PAGES – Luxury Redesign
    ============================================= */
-.payment-result-page {
-  min-height: 80vh;
+.pr-page {
+  min-height: 100vh;
   padding: 140px 24px 80px;
   display: flex;
-  align-items: flex-start;
   justify-content: center;
-  background: var(--bg-light, #fafafa);
+  background: var(--cream, #F5F7FA);
 }
-.payment-result-card {
-  max-width: 520px;
+.pr-container {
+  max-width: 580px;
   width: 100%;
-  background: #fff;
-  border-radius: 12px;
-  padding: 48px 40px;
+}
+
+/* ── Hero ── */
+.pr-hero {
   text-align: center;
-  border: 1px solid var(--border-light, #eee);
+  margin-bottom: 36px;
 }
-.payment-result-icon {
-  margin-bottom: 20px;
+.pr-checkmark {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 28px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green, #2d8a4e);
+  animation: prFadeIn 0.6s ease-out;
 }
-.payment-result--success .payment-result-icon { color: #38a169; }
-.payment-result--cancel .payment-result-icon { color: #e53e3e; }
+.pr-checkmark-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--green, #2d8a4e);
+  animation: prRingPulse 1.2s ease-out;
+}
+.pr-checkmark--cancel { color: #9b2c2c; }
+.pr-checkmark-ring--cancel { border-color: #9b2c2c; }
 
-.payment-result-card h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: var(--black);
+@keyframes prFadeIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
 }
-.payment-result-msg {
+@keyframes prRingPulse {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.pr-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--heading, #1D1D1F);
+  margin-bottom: 12px;
+}
+.pr-subtitle {
   font-size: 15px;
-  color: var(--text-muted, #666);
-  margin-bottom: 24px;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: var(--text-muted, #718096);
+  max-width: 420px;
+  margin: 0 auto;
+}
+.pr-order-ref {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 16px;
+  background: var(--black, #1A2B3C);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.payment-result-details {
-  background: var(--bg-light, #f7f7f7);
-  border-radius: 8px;
-  padding: 20px;
+/* ── Card ── */
+.pr-card {
+  background: #fff;
+  border: 1px solid var(--border-light, #E2E8F0);
+  padding: 0;
   margin-bottom: 24px;
-  text-align: left;
 }
-.payment-result-id {
+.pr-card-heading {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--heading);
+  padding: 24px 28px 0;
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Items ── */
+.pr-items {
+  padding: 16px 28px 0;
+}
+.pr-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-light, #E2E8F0);
+}
+.pr-item:last-child { border-bottom: none; }
+
+.pr-item-image {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  background: var(--cream, #F5F7FA);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pr-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pr-item-placeholder {
+  color: var(--text-muted, #718096);
+}
+
+.pr-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.pr-item-brand {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted, #718096);
+}
+.pr-item-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--heading, #1D1D1F);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pr-item-qty {
+  font-size: 12px;
+  color: var(--text-muted, #718096);
+}
+.pr-item-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--heading, #1D1D1F);
+  white-space: nowrap;
+}
+
+/* ── Totals ── */
+.pr-totals {
+  padding: 20px 28px;
+  border-top: 1px solid var(--border-light, #E2E8F0);
+  background: var(--cream, #F5F7FA);
+}
+.pr-totals-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-light, #4A5568);
+  padding: 4px 0;
+}
+.pr-totals-total {
+  padding-top: 12px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border, #D1D9E2);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--heading, #1D1D1F);
+}
+.pr-free {
+  color: var(--green, #2d8a4e);
+  font-weight: 500;
+}
+
+/* ── Info bar ── */
+.pr-info-bar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  background: #fff;
+  border: 1px solid var(--border-light, #E2E8F0);
+  margin-bottom: 32px;
+}
+.pr-info-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border-light, #E2E8F0);
+}
+.pr-info-item:last-child { border-bottom: none; }
+.pr-info-item svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--black, #1A2B3C);
+}
+.pr-info-item strong {
+  display: block;
   font-size: 13px;
   font-weight: 600;
-  color: var(--black);
+  color: var(--heading, #1D1D1F);
+  margin-bottom: 2px;
+}
+.pr-info-item p {
+  font-size: 13px;
+  color: var(--text-muted, #718096);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Cancel card ── */
+.pr-card--cancel {
+  padding: 28px;
+}
+.pr-cancel-reassure {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.pr-cancel-reassure svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--black, #1A2B3C);
+}
+.pr-cancel-reassure strong {
   display: block;
-  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--heading, #1D1D1F);
+  margin-bottom: 4px;
 }
-.payment-result-items {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.payment-result-item {
+.pr-cancel-reassure p {
   font-size: 13px;
-  color: var(--text-muted, #666);
+  color: var(--text-muted, #718096);
+  line-height: 1.5;
+  margin: 0;
 }
 
-.payment-result-note {
-  font-size: 13px;
-  color: var(--text-muted, #888);
-  margin-bottom: 28px;
-}
-
-.payment-result-actions {
+/* ── Actions ── */
+.pr-actions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 14px;
 }
-.payment-result-actions .btn {
+.pr-btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  width: 100%;
+  max-width: 320px;
+  padding: 14px 32px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pr-btn-link {
+  font-size: 13px;
+  color: var(--text-muted, #718096);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.pr-btn-link:hover {
+  color: var(--heading, #1D1D1F);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .pr-page { padding: 110px 16px 60px; }
+  .pr-title { font-size: 26px; }
+  .pr-card-heading { padding: 20px 20px 0; }
+  .pr-items { padding: 12px 20px 0; }
+  .pr-item { gap: 12px; }
+  .pr-item-image { width: 52px; height: 52px; }
+  .pr-totals { padding: 16px 20px; }
+  .pr-info-item { padding: 16px 20px; }
+  .pr-card--cancel { padding: 20px; }
 }
 
 /* Responsive checkout */
@@ -5412,9 +5623,6 @@ html.lenis, html.lenis body {
   }
   .checkout-row {
     grid-template-columns: 1fr;
-  }
-  .payment-result-card {
-    padding: 32px 24px;
   }
 }
 
