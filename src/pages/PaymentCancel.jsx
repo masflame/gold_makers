@@ -10,7 +10,7 @@ export default function PaymentCancel() {
   }, []);
 
   useEffect(() => {
-    if (order?.paymentId) {
+    if (order?.paymentId && supabase) {
       supabase
         .from('Orders')
         .update({ status: 'cancelled' })

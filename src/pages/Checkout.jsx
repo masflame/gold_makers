@@ -123,7 +123,7 @@ export default function Checkout() {
     };
 
     try {
-      await supabase.from('Orders').insert([orderPayload]);
+      if (supabase) await supabase.from('Orders').insert([orderPayload]);
     } catch (err) {
       console.error('Supabase order insert error:', err);
       /* Don't block payment if DB insert fails */

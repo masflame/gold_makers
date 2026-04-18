@@ -36,7 +36,7 @@ export default function PaymentSuccess() {
     clearBag();
 
     /* Mark the order as paid in Supabase */
-    if (order?.paymentId) {
+    if (order?.paymentId && supabase) {
       supabase
         .from('Orders')
         .update({ status: 'paid' })
