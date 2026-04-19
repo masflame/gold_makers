@@ -4800,61 +4800,124 @@ import img4796 from '../assets/shop/rings/rings-cartier/dwc644e081/images/large/
 import img4797 from '../assets/shop/rings/rings-cartier/dwc665b24a/images/large/rings/dade597e995157a39a0f9fc2e19f6c92.png';
 import img4798 from '../assets/shop/rings/rings-cartier/dwcacc496c/images/large/rings/c208acef03f858d592f3910b6afb6933.png';
 import img4799 from '../assets/shop/rings/rings-cartier/dwcf1e2b01/images/large/rings/b91e8cfcc73453078b8dbd48b975bcf5.png';
-import img4800 from '../assets/shop/wedding bands/wedding-bands-test/lab-grown-diamond-wedding-band-lgdr039/lab-grown-diamond-wedding-band/LGDR039.jpg';
-import img4801 from '../assets/shop/wedding bands/wedding-bands-test/single-prong-wedding-band-51100-w-04/single-prong-wedding-band/51100-W_9df25e2f-1123-4dbc-9cbd-207fcf8264cf.jpg';
-import img4802 from '../assets/shop/wedding bands/wedding-bands-test/straight-braided-wedding-band-51074-w/straight-braided-wedding-band/51074-W.jpg';
-import img4803 from '../assets/shop/wedding bands/wedding-bands-test/straight-diamond-wedding-band-51096-w-10/diamond-wedding-band/51096-W.jpg';
-import img4804 from '../assets/shop/wedding bands/wedding-bands-test/straight-wedding-band-51135-w/straight-wedding-band/51135-W.jpg';
-import img4805 from '../assets/shop/wedding bands/wedding-bands-test/twisted-dia-wedding-band-51121-w/twisted-dia-wedding-band/51121-W.jpg';
-import img4806 from '../assets/shop/wedding bands/wedding-bands-test/u-prong-eternity-wedding-band-85191-05s5-5/u-prong-full-eternity-wedding-band/85191.alt1.jpg';
-import img4807 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-20mm-stones-85141/wedding-band-2-0mm-stones/85141-W.jpg';
-import img4808 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50948-w/wedding-band/50948-W.jpg';
-import img4809 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50949-w/wedding-band/50949-W.jpg';
-import img4810 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50956-w/wedding-band/50956-W.alt1.jpg';
-import img4811 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50961-w/wedding-band/50961-W.alt.jpg';
-import img4812 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50975-w/wedding-band/50975-W.jpg';
-import img4813 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50982-w/wedding-band/50982-W.jpg';
-import img4814 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50985-w/wedding-band/50985-W.alt1.jpg';
-import img4815 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-51065-w/wedding-band/51065-W.alt.jpg';
-import img4816 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-51102-w/wedding-band/51102-W.jpg';
-import img4817 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-51155-w/wedding-band/51155-W.jpg';
-import img4818 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-84277-w/wedding-band/84277-W.alt.jpg';
-import img4819 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-for-1-2-and-3-4-50955-w-a/curved-diamond-band/50955-W.jpg';
-import img4820 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-bar-set-83434-3-4/diamond-bar-set-wedding-band/83434.jpg';
-import img4821 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-bezel-set-50352-w-4/diamond-bezel-set-band/50352-W.alt.jpg';
-import img4822 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-bezel-set-50567-w/diamond-wedding-band-bezel-set/50567-W.jpg';
-import img4823 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-bezel-set-83295-w/wedding-bands-bezel-set/83295-W.alt.jpg';
-import img4824 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-channel-set-50076-w/diamond-channel-band/50076-W.jpg';
-import img4825 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50594-w-1/wedding-bands-curved-bands/50594-W.jpg';
-import img4826 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50655-w/wedding-bands-curved-bands/50655-W.alt1.jpg';
-import img4827 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50821-w/curved-diamond-band/50821-W.jpg';
-import img4828 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50829-w/diamond-slightly-curved-wedding-band/50829-W.jpg';
-import img4829 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50834-w/wedding-bands-curved-bands/50834-W.jpg';
-import img4830 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50863-w/diamond-slightly-curved-wedding-band/50863-W.alt.jpg';
-import img4831 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50890-w-3-4/curved-diamond-wedding-band/50890-W.jpg';
-import img4832 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-82855-b-w/diamond-vintage-curved-wedding-band/82855-W.jpg';
-import img4833 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-83495-9x7-w/diamond-wedding-band-curve/83495-W.jpg';
-import img4834 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-eternity-84385-s6/full-diamond-eternity-band/84385.jpg';
-import img4835 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-eternity-84385-s8/full-diamond-eternity-band-set-in-yellow-gold/84385.alt.jpg';
-import img4836 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-eternity-84908-03s7/full-diamond-eternity-band/84908.jpg';
-import img4837 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-fancy-shape-princess-82881-3/diamond-princess-cut-band/82881.jpg';
-import img4838 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-fancy-shape-princess-83441-2-75/diamond-princess-cut-band/83441.jpg';
-import img4839 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-fancy-shape-princess-83652-a/diamond-princess-cut-wedding-band/83652.jpg';
-import img4840 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-pave-50358-w/diamond-pave-wedding-band-in-white-gold/50358-W.jpg';
-import img4841 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50274-w-15/wedding-bands-prong-set/50274-W.jpg';
-import img4842 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50324-w-c/diamond-prong-set-wedding-band-in-white-gold/50324-W.jpg';
-import img4843 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50353-w-20/diamond-prong-set-band/50353-W.alt.jpg';
-import img4844 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50470-w/wedding-bands-prong-set/50470-W.jpg';
-import img4845 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50529-w-b/diamond-wedding-band-prong-set/50529-W.jpg';
-import img4846 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50552-w-b/wedding-bands-prong-set/50552-W.jpg';
-import img4847 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50634-w-5/diamond-prong-set-wedding-band/50634-W_45a4efe6-d67f-4787-a926-5610718582e6.jpg';
-import img4848 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50641-w-05/wedding-bands-prong-set/50641-W.jpg';
-import img4849 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50838-w/wedding-bands-prong-set/50838-W.alt.jpg';
-import img4850 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-82387-1-4/diamond-prong-set-wedding-band/82387.alt.jpg';
-import img4851 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-82796-1-2/wedding-bands-prong-set/82796.alt.jpg';
-import img4852 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-82830-w/diamond-prong-set-wedding-band/82830-W.jpg';
-import img4853 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-83497-9x7-w/diamond-prong-set-curved-band/83497-W.alt1.jpg';
-import img4854 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-84548-11-3/diamond-prong-set-wedding-band-in-white-gold/84548.jpg';
+import img4800 from '../assets/shop/wedding bands/wedding-bands cartier/dw07be6f93/images/large/wedding-bands/f26f016ab156583daa9332f6c895fc45.png';
+import img4801 from '../assets/shop/wedding bands/wedding-bands cartier/dw0e55cc7a/images/large/wedding-bands/330da30a9b055736bf12e323b6b25662.png';
+import img4802 from '../assets/shop/wedding bands/wedding-bands cartier/dw0ebba5d0/images/large/wedding-bands/73eaa0d6c4045ab3af5bad7cc74d5827.png';
+import img4803 from '../assets/shop/wedding bands/wedding-bands cartier/dw1479b06c/images/large/wedding-bands/8e5d411ccab7529f95ccbe2d274fd4aa.png';
+import img4804 from '../assets/shop/wedding bands/wedding-bands cartier/dw1517392c/images/large/wedding-bands/0aabf43a91c25d9d86bef19506a9751a.png';
+import img4805 from '../assets/shop/wedding bands/wedding-bands cartier/dw162ca1c8/images/large/wedding-bands/4fdb60cb00a85b6d9b4094f0482dece4.png';
+import img4806 from '../assets/shop/wedding bands/wedding-bands cartier/dw1652cfbf/images/large/wedding-bands/3f8ba81ad9cf5fe1aa6a35cdab779a7f.png';
+import img4807 from '../assets/shop/wedding bands/wedding-bands cartier/dw16a0f5aa/images/large/wedding-bands/a990c371d5ae585f84b475b87c881976.png';
+import img4808 from '../assets/shop/wedding bands/wedding-bands cartier/dw17cfafde/images/large/wedding-bands/3597de56a2d35c5aa3274688dd9abbe2.png';
+import img4809 from '../assets/shop/wedding bands/wedding-bands cartier/dw1bf69da6/images/large/wedding-bands/75f4370f1ad453c19ff22ef2b01107bf.png';
+import img4810 from '../assets/shop/wedding bands/wedding-bands cartier/dw1de07c7a/images/large/wedding-bands/21866a08e2775b3aa77d52aec5fe9d0c.png';
+import img4811 from '../assets/shop/wedding bands/wedding-bands cartier/dw1e8a1bb6/images/large/wedding-bands/06cf5106f986537c95e17a487e52d2a7.png';
+import img4812 from '../assets/shop/wedding bands/wedding-bands cartier/dw27388cba/images/large/wedding-bands/d9a0bb036a2a5fd98d9defc7102b164f.png';
+import img4813 from '../assets/shop/wedding bands/wedding-bands cartier/dw2765fb7e/images/large/wedding-bands/bfafbdc1664b5439bb262c6c3c33818f.png';
+import img4814 from '../assets/shop/wedding bands/wedding-bands cartier/dw27f0145e/images/large/wedding-bands/f0ed8da519bd588da00e9f8c61d67a5f.png';
+import img4815 from '../assets/shop/wedding bands/wedding-bands cartier/dw27f762f4/images/large/wedding-bands/8550b5024a5b505ca35830db92515bd9.png';
+import img4816 from '../assets/shop/wedding bands/wedding-bands cartier/dw2e261a7a/images/large/wedding-bands/31fe9773240354e38ac9483b3b21d06d.png';
+import img4817 from '../assets/shop/wedding bands/wedding-bands cartier/dw343603c4/images/large/wedding-bands/23836389f0f856e685027538abf2a017.png';
+import img4818 from '../assets/shop/wedding bands/wedding-bands cartier/dw3d8a8188/images/large/wedding-bands/dd664260402351e6913721435c113d46.png';
+import img4819 from '../assets/shop/wedding bands/wedding-bands cartier/dw44ec2a89/images/large/wedding-bands/93ffadd3a5a35c2998e3a9ed3a91a6ad.png';
+import img4820 from '../assets/shop/wedding bands/wedding-bands cartier/dw47516a74/images/large/wedding-bands/509efad81d12569981abebf66c433720.png';
+import img4821 from '../assets/shop/wedding bands/wedding-bands cartier/dw4fdef8a6/images/large/wedding-bands/a00b4947c8f053198df18fc45763ab72.png';
+import img4822 from '../assets/shop/wedding bands/wedding-bands cartier/dw51135adb/images/large/wedding-bands/6d16c11caa41562f90f42722f1424df8.png';
+import img4823 from '../assets/shop/wedding bands/wedding-bands cartier/dw51d0815b/images/large/wedding-bands/bd8f908f8bc9537890282686a8a95686.png';
+import img4824 from '../assets/shop/wedding bands/wedding-bands cartier/dw5208aaf4/images/large/wedding-bands/3287ebd755be5459a25e6c8685cba03b.png';
+import img4825 from '../assets/shop/wedding bands/wedding-bands cartier/dw57114a7c/images/large/wedding-bands/1ef46177997b5fd599ed7061c2dc82b0.png';
+import img4826 from '../assets/shop/wedding bands/wedding-bands cartier/dw5e1b6a9b/images/large/wedding-bands/61d6cb3d3a9051a3a7a4c0e3a3fc9d45.png';
+import img4827 from '../assets/shop/wedding bands/wedding-bands cartier/dw622fddb3/images/large/wedding-bands/9f69070c6ba158eca8a176181b998eaa.png';
+import img4828 from '../assets/shop/wedding bands/wedding-bands cartier/dw63658bc4/images/large/wedding-bands/42268b89aeee5fcea825ccc70e3ea3c0.png';
+import img4829 from '../assets/shop/wedding bands/wedding-bands cartier/dw65575dd6/images/large/wedding-bands/22f92185bc7e5c2aaae2c10c96892fa2.png';
+import img4830 from '../assets/shop/wedding bands/wedding-bands cartier/dw6743ad36/images/large/wedding-bands/4914c89d4f385296b2e08c858db94072.png';
+import img4831 from '../assets/shop/wedding bands/wedding-bands cartier/dw68f888f4/images/large/wedding-bands/0cdb9bfb1ccb5c9aa8f78b6fbadbdfd6.png';
+import img4832 from '../assets/shop/wedding bands/wedding-bands cartier/dw6ddd75dc/images/large/wedding-bands/eec1cd1a831e59e2a15d84636f6e6e1e.png';
+import img4833 from '../assets/shop/wedding bands/wedding-bands cartier/dw6edecda6/images/large/wedding-bands/2c904bb38ecc53d5a0d1a53aa91d149a.png';
+import img4834 from '../assets/shop/wedding bands/wedding-bands cartier/dw757762b4/images/large/wedding-bands/01c6893426c65ca7b629f3f3759aaf6d.png';
+import img4835 from '../assets/shop/wedding bands/wedding-bands cartier/dw7612525d/images/large/wedding-bands/13a9afae627b55b79bc4574461b6f066.png';
+import img4836 from '../assets/shop/wedding bands/wedding-bands cartier/dw782fa82a/images/large/wedding-bands/e336ff5e9b4f5f1a9f5e00d882e14991.png';
+import img4837 from '../assets/shop/wedding bands/wedding-bands cartier/dw7b0dfd72/images/large/wedding-bands/ee2d0ceb50b25946a2ed61cdea2d638c.png';
+import img4838 from '../assets/shop/wedding bands/wedding-bands cartier/dw7b14af27/images/large/wedding-bands/23bc8d63825552ec8350167e7d701b97.png';
+import img4839 from '../assets/shop/wedding bands/wedding-bands cartier/dw7c0e22ee/images/large/wedding-bands/43f8794d4ab452e1b13346b00c0d0523.png';
+import img4840 from '../assets/shop/wedding bands/wedding-bands cartier/dw7e513cce/images/large/wedding-bands/e211cc396a745ec5a7202b7f6cf04455.png';
+import img4841 from '../assets/shop/wedding bands/wedding-bands cartier/dw7fa96d20/images/large/wedding-bands/75f6b252b14b5581bf05c857b6e8c2b5.png';
+import img4842 from '../assets/shop/wedding bands/wedding-bands cartier/dw8162285b/images/large/wedding-bands/61a4369c96ee5e41a5be474ade979578.png';
+import img4843 from '../assets/shop/wedding bands/wedding-bands cartier/dw81751aa1/images/large/wedding-bands/b55758bcaf705d26b5aac109918c7f9a.png';
+import img4844 from '../assets/shop/wedding bands/wedding-bands cartier/dw82719501/images/large/wedding-bands/bb77c23cdd5a5b6ab523f4f299e12a26.png';
+import img4845 from '../assets/shop/wedding bands/wedding-bands cartier/dw85ddf972/images/large/wedding-bands/265916fe5e1b537e9b389aa6efbe381b.png';
+import img4846 from '../assets/shop/wedding bands/wedding-bands cartier/dw86aa7718/images/large/wedding-bands/e815a4a251e856b982ff6c11050a5505.png';
+import img4847 from '../assets/shop/wedding bands/wedding-bands cartier/dw87125be2/images/large/wedding-bands/2e16b20e60d0529fb43c06919a189200.png';
+import img4848 from '../assets/shop/wedding bands/wedding-bands cartier/dw872d368f/images/large/wedding-bands/b7a85abd31af5ec6adf727c81d1f30bc.png';
+import img4849 from '../assets/shop/wedding bands/wedding-bands cartier/dw8a20f1fc/images/large/wedding-bands/552601bc8214561da7d5db58946aff37.png';
+import img4850 from '../assets/shop/wedding bands/wedding-bands cartier/dw8a6efdcb/images/large/wedding-bands/242a2b96e06e54f68a0b6664b04abcb5.png';
+import img4851 from '../assets/shop/wedding bands/wedding-bands cartier/dw8fee750b/images/large/wedding-bands/d6bc92c97fe85fda81facc784519e00f.png';
+import img4852 from '../assets/shop/wedding bands/wedding-bands cartier/dw97b2f19f/images/large/wedding-bands/9330c84c7eb0568cb1543cd52b06a641.png';
+import img4853 from '../assets/shop/wedding bands/wedding-bands cartier/dw9c90f92f/images/large/wedding-bands/7c3985a72874573b8d0fcc5247a191d1.png';
+import img4854 from '../assets/shop/wedding bands/wedding-bands cartier/dw9e0a4fad/images/large/wedding-bands/b1e46928549d5eb29d44b225b36f1c4e.png';
+import img4855 from '../assets/shop/wedding bands/wedding-bands cartier/dw9e96c9a6/images/large/wedding-bands/d6ef6891a73b562682a76cf71a783dde.png';
+import img4856 from '../assets/shop/wedding bands/wedding-bands cartier/dwa2d71585/images/large/wedding-bands/4f718138e7dc5863b1e2c4a5d19ed569.png';
+import img4857 from '../assets/shop/wedding bands/wedding-bands cartier/dwb4acd974/images/large/wedding-bands/f07f560822b55c9daa56681f6d78139f.png';
+import img4858 from '../assets/shop/wedding bands/wedding-bands cartier/dwb4cee270/images/large/wedding-bands/5100bfa17c925318aaee476bfabdb214.png';
+import img4859 from '../assets/shop/wedding bands/wedding-bands cartier/dwb5d14fcf/images/large/wedding-bands/cdee645842e754ac84ce3c136b79ed9a.png';
+import img4860 from '../assets/shop/wedding bands/wedding-bands cartier/dwbcae5f0f/images/large/wedding-bands/645fe2288d4d5b2f8fb368dc23fd3190.png';
+import img4861 from '../assets/shop/wedding bands/wedding-bands cartier/dwbdc2f28d/images/large/wedding-bands/439ecf93f6365f4589cdcb8f0852ff42.png';
+import img4862 from '../assets/shop/wedding bands/wedding-bands cartier/dwbe07cdbe/images/large/wedding-bands/930c34554d3b560d9adca124e0496da5.png';
+import img4863 from '../assets/shop/wedding bands/wedding-bands-test/lab-grown-diamond-wedding-band-lgdr039/lab-grown-diamond-wedding-band/LGDR039.jpg';
+import img4864 from '../assets/shop/wedding bands/wedding-bands-test/single-prong-wedding-band-51100-w-04/single-prong-wedding-band/51100-W_9df25e2f-1123-4dbc-9cbd-207fcf8264cf.jpg';
+import img4865 from '../assets/shop/wedding bands/wedding-bands-test/straight-braided-wedding-band-51074-w/straight-braided-wedding-band/51074-W.jpg';
+import img4866 from '../assets/shop/wedding bands/wedding-bands-test/straight-diamond-wedding-band-51096-w-10/diamond-wedding-band/51096-W.jpg';
+import img4867 from '../assets/shop/wedding bands/wedding-bands-test/straight-wedding-band-51135-w/straight-wedding-band/51135-W.jpg';
+import img4868 from '../assets/shop/wedding bands/wedding-bands-test/twisted-dia-wedding-band-51121-w/twisted-dia-wedding-band/51121-W.jpg';
+import img4869 from '../assets/shop/wedding bands/wedding-bands-test/u-prong-eternity-wedding-band-85191-05s5-5/u-prong-full-eternity-wedding-band/85191.alt1.jpg';
+import img4870 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-20mm-stones-85141/wedding-band-2-0mm-stones/85141-W.jpg';
+import img4871 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50948-w/wedding-band/50948-W.jpg';
+import img4872 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50949-w/wedding-band/50949-W.jpg';
+import img4873 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50956-w/wedding-band/50956-W.alt1.jpg';
+import img4874 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50961-w/wedding-band/50961-W.alt.jpg';
+import img4875 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50975-w/wedding-band/50975-W.jpg';
+import img4876 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50982-w/wedding-band/50982-W.jpg';
+import img4877 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-50985-w/wedding-band/50985-W.alt1.jpg';
+import img4878 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-51065-w/wedding-band/51065-W.alt.jpg';
+import img4879 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-51102-w/wedding-band/51102-W.jpg';
+import img4880 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-51155-w/wedding-band/51155-W.jpg';
+import img4881 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-84277-w/wedding-band/84277-W.alt.jpg';
+import img4882 from '../assets/shop/wedding bands/wedding-bands-test/wedding-band-for-1-2-and-3-4-50955-w-a/curved-diamond-band/50955-W.jpg';
+import img4883 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-bar-set-83434-3-4/diamond-bar-set-wedding-band/83434.jpg';
+import img4884 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-bezel-set-50352-w-4/diamond-bezel-set-band/50352-W.alt.jpg';
+import img4885 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-bezel-set-50567-w/diamond-wedding-band-bezel-set/50567-W.jpg';
+import img4886 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-bezel-set-83295-w/wedding-bands-bezel-set/83295-W.alt.jpg';
+import img4887 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-channel-set-50076-w/diamond-channel-band/50076-W.jpg';
+import img4888 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50594-w-1/wedding-bands-curved-bands/50594-W.jpg';
+import img4889 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50655-w/wedding-bands-curved-bands/50655-W.alt1.jpg';
+import img4890 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50821-w/curved-diamond-band/50821-W.jpg';
+import img4891 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50829-w/diamond-slightly-curved-wedding-band/50829-W.jpg';
+import img4892 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50834-w/wedding-bands-curved-bands/50834-W.jpg';
+import img4893 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50863-w/diamond-slightly-curved-wedding-band/50863-W.alt.jpg';
+import img4894 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-50890-w-3-4/curved-diamond-wedding-band/50890-W.jpg';
+import img4895 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-82855-b-w/diamond-vintage-curved-wedding-band/82855-W.jpg';
+import img4896 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-curved-bands-83495-9x7-w/diamond-wedding-band-curve/83495-W.jpg';
+import img4897 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-eternity-84385-s6/full-diamond-eternity-band/84385.jpg';
+import img4898 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-eternity-84385-s8/full-diamond-eternity-band-set-in-yellow-gold/84385.alt.jpg';
+import img4899 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-eternity-84908-03s7/full-diamond-eternity-band/84908.jpg';
+import img4900 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-fancy-shape-princess-82881-3/diamond-princess-cut-band/82881.jpg';
+import img4901 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-fancy-shape-princess-83441-2-75/diamond-princess-cut-band/83441.jpg';
+import img4902 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-fancy-shape-princess-83652-a/diamond-princess-cut-wedding-band/83652.jpg';
+import img4903 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-pave-50358-w/diamond-pave-wedding-band-in-white-gold/50358-W.jpg';
+import img4904 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50274-w-15/wedding-bands-prong-set/50274-W.jpg';
+import img4905 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50324-w-c/diamond-prong-set-wedding-band-in-white-gold/50324-W.jpg';
+import img4906 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50353-w-20/diamond-prong-set-band/50353-W.alt.jpg';
+import img4907 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50470-w/wedding-bands-prong-set/50470-W.jpg';
+import img4908 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50529-w-b/diamond-wedding-band-prong-set/50529-W.jpg';
+import img4909 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50552-w-b/wedding-bands-prong-set/50552-W.jpg';
+import img4910 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50634-w-5/diamond-prong-set-wedding-band/50634-W_45a4efe6-d67f-4787-a926-5610718582e6.jpg';
+import img4911 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50641-w-05/wedding-bands-prong-set/50641-W.jpg';
+import img4912 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-50838-w/wedding-bands-prong-set/50838-W.alt.jpg';
+import img4913 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-82387-1-4/diamond-prong-set-wedding-band/82387.alt.jpg';
+import img4914 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-82796-1-2/wedding-bands-prong-set/82796.alt.jpg';
+import img4915 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-82830-w/diamond-prong-set-wedding-band/82830-W.jpg';
+import img4916 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-83497-9x7-w/diamond-prong-set-curved-band/83497-W.alt1.jpg';
+import img4917 from '../assets/shop/wedding bands/wedding-bands-test/wedding-bands-prong-set-84548-11-3/diamond-prong-set-wedding-band-in-white-gold/84548.jpg';
 
 export const brands = [
   {
@@ -27287,9 +27350,9 @@ export const products = [
   {
     id: 1549,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Lab Grown Diamond Wedding Band',
-    price: 7400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4800,
@@ -27300,9 +27363,9 @@ export const products = [
   {
     id: 1550,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Single Prong Wedding Band',
-    price: 5900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4801,
@@ -27313,9 +27376,9 @@ export const products = [
   {
     id: 1551,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Straight Braided Wedding Band',
-    price: 6900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4802,
@@ -27326,9 +27389,9 @@ export const products = [
   {
     id: 1552,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Wedding Band',
-    price: 5400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4803,
@@ -27339,9 +27402,9 @@ export const products = [
   {
     id: 1553,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Straight Wedding Band',
-    price: 6400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4804,
@@ -27352,9 +27415,9 @@ export const products = [
   {
     id: 1554,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Twisted Dia Wedding Band',
-    price: 6400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4805,
@@ -27365,9 +27428,9 @@ export const products = [
   {
     id: 1555,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'U Prong Full Eternity Wedding Band',
-    price: 18400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4806,
@@ -27378,9 +27441,9 @@ export const products = [
   {
     id: 1556,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band 2.0mm Stones',
-    price: 5400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4807,
@@ -27391,9 +27454,9 @@ export const products = [
   {
     id: 1557,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 7400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4808,
@@ -27404,9 +27467,9 @@ export const products = [
   {
     id: 1558,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 5900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4809,
@@ -27417,9 +27480,9 @@ export const products = [
   {
     id: 1559,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 7900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4810,
@@ -27430,9 +27493,9 @@ export const products = [
   {
     id: 1560,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 6400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4811,
@@ -27443,9 +27506,9 @@ export const products = [
   {
     id: 1561,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 6400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4812,
@@ -27456,9 +27519,9 @@ export const products = [
   {
     id: 1562,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 6900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4813,
@@ -27469,9 +27532,9 @@ export const products = [
   {
     id: 1563,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 6900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4814,
@@ -27482,9 +27545,9 @@ export const products = [
   {
     id: 1564,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 7400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4815,
@@ -27495,9 +27558,9 @@ export const products = [
   {
     id: 1565,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 7400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4816,
@@ -27508,9 +27571,9 @@ export const products = [
   {
     id: 1566,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 7400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4817,
@@ -27521,9 +27584,9 @@ export const products = [
   {
     id: 1567,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Band',
-    price: 6400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4818,
@@ -27534,9 +27597,9 @@ export const products = [
   {
     id: 1568,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Curved Diamond Band',
-    price: 6900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4819,
@@ -27547,9 +27610,9 @@ export const products = [
   {
     id: 1569,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Bar Set Wedding Band',
-    price: 8400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4820,
@@ -27560,9 +27623,9 @@ export const products = [
   {
     id: 1570,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Bezel Set Band',
-    price: 8400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4821,
@@ -27573,9 +27636,9 @@ export const products = [
   {
     id: 1571,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Wedding Band Bezel Set',
-    price: 3000,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4822,
@@ -27586,9 +27649,9 @@ export const products = [
   {
     id: 1572,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Bands Bezel Set',
-    price: 8900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4823,
@@ -27599,9 +27662,9 @@ export const products = [
   {
     id: 1573,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Channel Band',
-    price: 9400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4824,
@@ -27612,9 +27675,9 @@ export const products = [
   {
     id: 1574,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Bands Curved Bands',
-    price: 6400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4825,
@@ -27625,9 +27688,9 @@ export const products = [
   {
     id: 1575,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Bands Curved Bands',
-    price: 6400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4826,
@@ -27638,9 +27701,9 @@ export const products = [
   {
     id: 1576,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Curved Diamond Band',
-    price: 8400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4827,
@@ -27651,9 +27714,9 @@ export const products = [
   {
     id: 1577,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Slightly Curved Wedding Band',
-    price: 7400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4828,
@@ -27664,9 +27727,9 @@ export const products = [
   {
     id: 1578,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Bands Curved Bands',
-    price: 7400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4829,
@@ -27677,9 +27740,9 @@ export const products = [
   {
     id: 1579,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Slightly Curved Wedding Band',
-    price: 8400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4830,
@@ -27690,9 +27753,9 @@ export const products = [
   {
     id: 1580,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Curved Diamond Wedding Band',
-    price: 7900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4831,
@@ -27703,9 +27766,9 @@ export const products = [
   {
     id: 1581,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Vintage Curved Wedding Band',
-    price: 9900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4832,
@@ -27716,9 +27779,9 @@ export const products = [
   {
     id: 1582,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Wedding Band Curve',
-    price: 7900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4833,
@@ -27729,9 +27792,9 @@ export const products = [
   {
     id: 1583,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Full Diamond Eternity Band',
-    price: 14900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4834,
@@ -27742,9 +27805,9 @@ export const products = [
   {
     id: 1584,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Full Diamond Eternity Band Set In Yellow Gold',
-    price: 16400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4835,
@@ -27755,9 +27818,9 @@ export const products = [
   {
     id: 1585,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Full Diamond Eternity Band',
-    price: 16400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4836,
@@ -27768,9 +27831,9 @@ export const products = [
   {
     id: 1586,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Princess Cut Band',
-    price: 10400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4837,
@@ -27781,9 +27844,9 @@ export const products = [
   {
     id: 1587,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Princess Cut Band',
-    price: 11900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4838,
@@ -27794,9 +27857,9 @@ export const products = [
   {
     id: 1588,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Princess Cut Wedding Band',
-    price: 12400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4839,
@@ -27807,9 +27870,9 @@ export const products = [
   {
     id: 1589,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Pave Wedding Band In White Gold',
-    price: 10400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4840,
@@ -27820,9 +27883,9 @@ export const products = [
   {
     id: 1590,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Bands Prong Set',
-    price: 9400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4841,
@@ -27833,9 +27896,9 @@ export const products = [
   {
     id: 1591,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Prong Set Wedding Band In White Gold',
-    price: 8900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4842,
@@ -27846,9 +27909,9 @@ export const products = [
   {
     id: 1592,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Prong Set Band',
-    price: 8900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4843,
@@ -27859,9 +27922,9 @@ export const products = [
   {
     id: 1593,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Bands Prong Set',
-    price: 6900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4844,
@@ -27872,9 +27935,9 @@ export const products = [
   {
     id: 1594,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Wedding Band Prong Set',
-    price: 9400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4845,
@@ -27885,9 +27948,9 @@ export const products = [
   {
     id: 1595,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Bands Prong Set',
-    price: 8400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4846,
@@ -27898,9 +27961,9 @@ export const products = [
   {
     id: 1596,
     type: 'ring',
-    brand: 'Montblanc',
-    name: 'Diamond Prong Set Wedding Band',
-    price: 7900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4847,
@@ -27911,9 +27974,9 @@ export const products = [
   {
     id: 1597,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Bands Prong Set',
-    price: 7400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4848,
@@ -27924,9 +27987,9 @@ export const products = [
   {
     id: 1598,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Bands Prong Set',
-    price: 7400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4849,
@@ -27937,9 +28000,9 @@ export const products = [
   {
     id: 1599,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Prong Set Wedding Band',
-    price: 6900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4850,
@@ -27950,9 +28013,9 @@ export const products = [
   {
     id: 1600,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Wedding Bands Prong Set',
-    price: 7400,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4851,
@@ -27963,9 +28026,9 @@ export const products = [
   {
     id: 1601,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Prong Set Wedding Band',
-    price: 8900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4852,
@@ -27976,9 +28039,9 @@ export const products = [
   {
     id: 1602,
     type: 'ring',
-    brand: 'Zermatt Diamonds',
-    name: 'Diamond Prong Set Curved Band',
-    price: 6900,
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
     currency: 'ZAR',
     condition: 'New',
     image: img4853,
@@ -27989,13 +28052,832 @@ export const products = [
   {
     id: 1603,
     type: 'ring',
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4854,
+    images: [img4854],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1604,
+    type: 'ring',
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4855,
+    images: [img4855],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1605,
+    type: 'ring',
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4856,
+    images: [img4856],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1606,
+    type: 'ring',
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4857,
+    images: [img4857],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1607,
+    type: 'ring',
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4858,
+    images: [img4858],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1608,
+    type: 'ring',
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4859,
+    images: [img4859],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1609,
+    type: 'ring',
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4860,
+    images: [img4860],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1610,
+    type: 'ring',
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4861,
+    images: [img4861],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1611,
+    type: 'ring',
+    brand: 'Cartier',
+    name: 'Cartier Wedding Bands - Luxury Men\'s & Women\'s Bands',
+    price: 26270,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4862,
+    images: [img4862],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1612,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Lab Grown Diamond Wedding Band',
+    price: 7400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4863,
+    images: [img4863],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1613,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Single Prong Wedding Band',
+    price: 5900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4864,
+    images: [img4864],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1614,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Straight Braided Wedding Band',
+    price: 6900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4865,
+    images: [img4865],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1615,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Wedding Band',
+    price: 5400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4866,
+    images: [img4866],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1616,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Straight Wedding Band',
+    price: 6400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4867,
+    images: [img4867],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1617,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Twisted Dia Wedding Band',
+    price: 6400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4868,
+    images: [img4868],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1618,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'U Prong Full Eternity Wedding Band',
+    price: 18400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4869,
+    images: [img4869],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1619,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band 2.0mm Stones',
+    price: 5400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4870,
+    images: [img4870],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1620,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 7400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4871,
+    images: [img4871],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1621,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 5900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4872,
+    images: [img4872],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1622,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 7900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4873,
+    images: [img4873],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1623,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 6400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4874,
+    images: [img4874],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1624,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 6400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4875,
+    images: [img4875],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1625,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 6900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4876,
+    images: [img4876],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1626,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 6900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4877,
+    images: [img4877],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1627,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 7400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4878,
+    images: [img4878],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1628,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 7400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4879,
+    images: [img4879],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1629,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 7400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4880,
+    images: [img4880],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1630,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Band',
+    price: 6400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4881,
+    images: [img4881],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1631,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Curved Diamond Band',
+    price: 6900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4882,
+    images: [img4882],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1632,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Bar Set Wedding Band',
+    price: 8400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4883,
+    images: [img4883],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1633,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Bezel Set Band',
+    price: 8400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4884,
+    images: [img4884],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1634,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Wedding Band Bezel Set',
+    price: 3000,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4885,
+    images: [img4885],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1635,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Bands Bezel Set',
+    price: 8900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4886,
+    images: [img4886],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1636,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Channel Band',
+    price: 9400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4887,
+    images: [img4887],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1637,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Bands Curved Bands',
+    price: 6400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4888,
+    images: [img4888],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1638,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Bands Curved Bands',
+    price: 6400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4889,
+    images: [img4889],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1639,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Curved Diamond Band',
+    price: 8400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4890,
+    images: [img4890],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1640,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Slightly Curved Wedding Band',
+    price: 7400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4891,
+    images: [img4891],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1641,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Bands Curved Bands',
+    price: 7400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4892,
+    images: [img4892],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1642,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Slightly Curved Wedding Band',
+    price: 8400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4893,
+    images: [img4893],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1643,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Curved Diamond Wedding Band',
+    price: 7900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4894,
+    images: [img4894],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1644,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Vintage Curved Wedding Band',
+    price: 9900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4895,
+    images: [img4895],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1645,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Wedding Band Curve',
+    price: 7900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4896,
+    images: [img4896],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1646,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Full Diamond Eternity Band',
+    price: 14900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4897,
+    images: [img4897],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1647,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Full Diamond Eternity Band Set In Yellow Gold',
+    price: 16400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4898,
+    images: [img4898],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1648,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Full Diamond Eternity Band',
+    price: 16400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4899,
+    images: [img4899],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1649,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Princess Cut Band',
+    price: 10400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4900,
+    images: [img4900],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1650,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Princess Cut Band',
+    price: 11900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4901,
+    images: [img4901],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1651,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Princess Cut Wedding Band',
+    price: 12400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4902,
+    images: [img4902],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1652,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Pave Wedding Band In White Gold',
+    price: 10400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4903,
+    images: [img4903],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1653,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Bands Prong Set',
+    price: 9400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4904,
+    images: [img4904],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1654,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Prong Set Wedding Band In White Gold',
+    price: 8900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4905,
+    images: [img4905],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1655,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Prong Set Band',
+    price: 8900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4906,
+    images: [img4906],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1656,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Bands Prong Set',
+    price: 6900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4907,
+    images: [img4907],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1657,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Wedding Band Prong Set',
+    price: 9400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4908,
+    images: [img4908],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1658,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Bands Prong Set',
+    price: 8400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4909,
+    images: [img4909],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1659,
+    type: 'ring',
+    brand: 'Montblanc',
+    name: 'Diamond Prong Set Wedding Band',
+    price: 7900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4910,
+    images: [img4910],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1660,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Bands Prong Set',
+    price: 7400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4911,
+    images: [img4911],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1661,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Bands Prong Set',
+    price: 7400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4912,
+    images: [img4912],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1662,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Prong Set Wedding Band',
+    price: 6900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4913,
+    images: [img4913],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1663,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Wedding Bands Prong Set',
+    price: 7400,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4914,
+    images: [img4914],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1664,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Prong Set Wedding Band',
+    price: 8900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4915,
+    images: [img4915],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1665,
+    type: 'ring',
+    brand: 'Zermatt Diamonds',
+    name: 'Diamond Prong Set Curved Band',
+    price: 6900,
+    currency: 'ZAR',
+    condition: 'New',
+    image: img4916,
+    images: [img4916],
+    category: 'wedding-bands',
+    featured: false,
+  },
+  {
+    id: 1666,
+    type: 'ring',
     brand: 'Zermatt Diamonds',
     name: 'Diamond Prong Set Wedding Band In White Gold',
     price: 7400,
     currency: 'ZAR',
     condition: 'New',
-    image: img4854,
-    images: [img4854],
+    image: img4917,
+    images: [img4917],
     category: 'wedding-bands',
     featured: false,
   }

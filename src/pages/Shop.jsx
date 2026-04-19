@@ -129,7 +129,20 @@ export default function Shop() {
       case 'price-asc': result.sort((a, b) => a.price - b.price); break;
       case 'price-desc': result.sort((a, b) => b.price - a.price); break;
       case 'brand-asc': result.sort((a, b) => a.brand.localeCompare(b.brand)); break;
-      default: result.sort((a, b) => b.id - a.id);
+      default: {
+        const isNonWatchJewelry = activeCategories.length > 0 && !activeCategories.includes('watches');
+        const noSpecificBrand = activeBrands.length === 0;
+        if (isNonWatchJewelry && noSpecificBrand) {
+          result.sort((a, b) => {
+            const aCartier = a.brand === 'Cartier' ? 0 : 1;
+            const bCartier = b.brand === 'Cartier' ? 0 : 1;
+            return aCartier - bCartier || b.id - a.id;
+          });
+        } else {
+          result.sort((a, b) => b.id - a.id);
+        }
+        break;
+      }
     }
     return result;
   }, [brandsKey, categoriesKey, activeGender, sort]);

@@ -6,7 +6,17 @@ import ProductCard from './ProductCard';
 
 export default memo(function CategoryPreview({ categoryId, title, limit = 6 }) {
   const items = useMemo(
-    () => products.filter((p) => p.category === categoryId).slice(0, limit),
+    () => {
+      const catProducts = products.filter((p) => p.category === categoryId);
+      if (categoryId !== 'watches') {
+        catProducts.sort((a, b) => {
+          const aCartier = a.brand === 'Cartier' ? 0 : 1;
+          const bCartier = b.brand === 'Cartier' ? 0 : 1;
+          return aCartier - bCartier;
+        });
+      }
+      return catProducts.slice(0, limit);
+    },
     [categoryId, limit]
   );
 
