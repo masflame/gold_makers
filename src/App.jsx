@@ -20,10 +20,14 @@ const PaymentCancel = lazy(() => import('./pages/PaymentCancel'));
 const Faq = lazy(() => import('./pages/Faq'));
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, search]);
   return null;
 }
 

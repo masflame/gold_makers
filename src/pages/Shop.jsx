@@ -130,13 +130,17 @@ export default function Shop() {
       case 'price-desc': result.sort((a, b) => b.price - a.price); break;
       case 'brand-asc': result.sort((a, b) => a.brand.localeCompare(b.brand)); break;
       default: {
-        const isNonWatchJewelry = activeCategories.length > 0 && !activeCategories.includes('watches');
+        const onlyWatches = activeCategories.length === 1 && activeCategories.includes('watches');
         const noSpecificBrand = activeBrands.length === 0;
-        if (isNonWatchJewelry && noSpecificBrand) {
+        if (!onlyWatches && noSpecificBrand) {
           result.sort((a, b) => {
-            const aCartier = a.brand === 'Cartier' ? 0 : 1;
-            const bCartier = b.brand === 'Cartier' ? 0 : 1;
-            return aCartier - bCartier || b.id - a.id;
+            if (a.category === 'watches' && b.category === 'watches') return b.id - a.id;
+            if (a.category !== 'watches' && b.category !== 'watches') {
+              const ac = a.brand === 'Cartier' ? 0 : 1;
+              const bc = b.brand === 'Cartier' ? 0 : 1;
+              return ac - bc || b.id - a.id;
+            }
+            return b.id - a.id;
           });
         } else {
           result.sort((a, b) => b.id - a.id);
@@ -147,9 +151,14 @@ export default function Shop() {
     return result;
   }, [brandsKey, categoriesKey, activeGender, sort]);
 
-  // Reset visible count when filters/sort change
+  // Reset visible count and scroll to top when filters/sort change
   useEffect(() => {
     setVisibleCount(ITEMS_PER_PAGE);
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, [brandsKey, categoriesKey, activeGender, sort]);
 
   const visibleProducts = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount]);

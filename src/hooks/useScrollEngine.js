@@ -81,5 +81,11 @@ export default function useScrollEngine(pathname) {
     };
   }, [pathname]);
 
+  // Expose lenis globally so other components can call scrollTo
+  useEffect(() => {
+    window.__lenis = lenisRef.current;
+    return () => { window.__lenis = null; };
+  });
+
   return lenisRef;
 }
