@@ -366,26 +366,10 @@ for (const [folderName, catInfo] of Object.entries(CATEGORY_FOLDERS)) {
     // Skip straps and swatches
     if (name.toLowerCase().includes('strap') || name.toLowerCase().includes('swatch')) continue;
 
-    // Price – detect currency and convert to ZAR
-    const USD_TO_ZAR = 18.5;
-    const CHF_TO_ZAR = 21;
-    const EUR_TO_ZAR = 20;
-    let price = 0;
-    if (bestRow && bestRow.price) {
-      const priceStr = bestRow.price.toString().trim();
-      const numericVal = parseFloat(priceStr.replace(/[^0-9.]/g, '')) || 0;
-      if (priceStr.startsWith('$') || priceStr.includes('USD')) {
-        price = Math.round(numericVal * USD_TO_ZAR);
-      } else if (priceStr.includes('CHF')) {
-        price = Math.round(numericVal * CHF_TO_ZAR);
-      } else if (priceStr.includes('EUR') || priceStr.startsWith('€')) {
-        price = Math.round(numericVal * EUR_TO_ZAR);
-      } else {
-        // ZAR or plain number – use as-is
-        price = numericVal >= 100 ? Math.round(numericVal) : 0;
-      }
-    }
-    if (price < 100) continue;
+    // Price
+    const rawPrice = bestRow ? parseFloat((bestRow.price || '0').toString().replace(/[^0-9.]/g, '')) || 0 : 0;
+    const price = rawPrice >= 100 ? Math.round(rawPrice) : 0;
+    if (price === 0) continue;
 
     // Condition
     const condition = bestRow && (bestRow.product_description || '').toLowerCase().includes('pre-owned') ? 'Pre-owned' : 'New';
