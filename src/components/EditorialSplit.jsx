@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 
 /**
- * Full-bleed editorial split — large image one side, text + CTA other.
+ * Full-bleed editorial split - large image one side, text + CTA other.
  * Props: image, video (optional), title, subtitle, cta, ctaLink, reverse (flip layout)
  */
 export default function EditorialSplit({
   image,
   video,
+  tagline,
   title,
   subtitle,
   cta = 'Discover',
@@ -31,11 +32,13 @@ export default function EditorialSplit({
         )}
       </div>
       <div className="ed-split-content">
+        <div className="ed-split-accent" />
+        {tagline && <span className="ed-split-tagline">{tagline}</span>}
         <h2 className="ed-split-title">{title}</h2>
         <p className="ed-split-subtitle">{subtitle}</p>
         <Link to={ctaLink} className="ed-split-cta">
           {cta}
-          <span className="ed-split-cta-line" />
+          <span className="ed-split-cta-arrow">&#8594;</span>
         </Link>
       </div>
     </section>

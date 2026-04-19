@@ -37,7 +37,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 body {
   font-family: var(--font-body);
@@ -47,10 +47,10 @@ body {
   background: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
 }
-#root { width: 100%; max-width: 100vw; min-height: 100vh; overflow-x: hidden; }
+#root { width: 100%; max-width: 100vw; min-height: 100vh; overflow-x: clip; }
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; font-family: inherit; border: none; background: none; color: inherit; }
 img { max-width: 100%; display: block; }
@@ -578,6 +578,18 @@ video::-webkit-media-controls-start-playback-button {
   font-size: 36px;
   font-weight: 300;
   letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
 }
 .section-view-all {
   display: inline-flex;
@@ -5812,7 +5824,7 @@ html.lenis, html.lenis body {
    ============================================= */
 @media (max-width: 768px) {
   html, body, #root {
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     max-width: 100vw;
   }
   /* Prevent iOS zoom on input focus (font-size < 16px triggers zoom) */
@@ -5827,7 +5839,7 @@ html.lenis, html.lenis body {
   .about-page,
   .co-page {
     max-width: 100vw;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 }
 
@@ -5865,27 +5877,43 @@ html.lenis, html.lenis body {
   justify-content: center;
   padding: 80px 72px;
   background: var(--cream);
+  position: relative;
+}
+.ed-split-accent {
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 28px;
+}
+.ed-split-tagline {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
 }
 .ed-split-title {
   font-family: var(--font-display);
   font-size: clamp(28px, 3.5vw, 48px);
   font-weight: 600;
   letter-spacing: -0.01em;
-  line-height: 1.15;
+  line-height: 1.12;
   color: var(--heading);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 .ed-split-subtitle {
   font-size: 15px;
-  line-height: 1.8;
+  line-height: 1.85;
   color: var(--text-light);
   max-width: 420px;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 .ed-split-cta {
   display: inline-flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 10px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -5893,16 +5921,20 @@ html.lenis, html.lenis body {
   color: var(--black);
   text-decoration: none;
   width: fit-content;
+  padding: 14px 32px;
+  border: 1.5px solid var(--black);
+  transition: background 0.35s ease, color 0.35s ease;
 }
-.ed-split-cta-line {
-  display: block;
-  height: 1.5px;
+.ed-split-cta:hover {
   background: var(--black);
-  width: 0;
-  transition: width 0.4s ease;
+  color: #fff;
 }
-.ed-split-cta:hover .ed-split-cta-line {
-  width: 100%;
+.ed-split-cta-arrow {
+  font-size: 16px;
+  transition: transform 0.35s ease;
+}
+.ed-split-cta:hover .ed-split-cta-arrow {
+  transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
@@ -5916,6 +5948,9 @@ html.lenis, html.lenis body {
     padding: 48px 24px 56px;
   }
   .ed-split-title { font-size: 26px; }
+  .ed-split-cta {
+    padding: 12px 28px;
+  }
 }
 
 
@@ -5927,7 +5962,7 @@ html.lenis, html.lenis body {
   min-height: 80vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
 }
 .vid-showcase-bg {
@@ -5944,16 +5979,17 @@ html.lenis, html.lenis body {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.15) 0%,
-    rgba(0, 0, 0, 0.45) 100%
+    90deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.35) 50%,
+    transparent 100%
   );
 }
 .vid-showcase-content {
   position: relative;
   z-index: 2;
-  text-align: center;
-  padding: 40px 24px;
+  text-align: left;
+  padding: 40px 24px 40px clamp(32px, 6vw, 100px);
   max-width: 640px;
 }
 .vid-showcase-title {
@@ -5964,12 +6000,14 @@ html.lenis, html.lenis body {
   letter-spacing: -0.01em;
   line-height: 1.1;
   margin-bottom: 18px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 .vid-showcase-subtitle {
   font-size: 15px;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.92);
   margin-bottom: 36px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 .vid-showcase-cta {
   background: #fff !important;

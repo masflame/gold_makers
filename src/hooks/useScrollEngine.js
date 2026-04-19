@@ -12,7 +12,7 @@ const isTouchDevice = () =>
  * Call once inside App (or any top-level layout component).
  * Pass `pathname` so the observer re-scans after route changes.
  *
- * Lenis is DISABLED on touch devices — it hijacks native scroll
+ * Lenis is DISABLED on touch devices - it hijacks native scroll
  * which breaks IntersectionObserver, video autoplay, and input focus.
  */
 export default function useScrollEngine(pathname) {
@@ -45,7 +45,7 @@ export default function useScrollEngine(pathname) {
 
   /* ── Scroll-triggered reveal observer ────────────────── */
   useEffect(() => {
-    // On touch devices, reveal everything immediately —
+    // On touch devices, reveal everything immediately -
     // IntersectionObserver is unreliable on mobile initial load
     if (isTouchDevice()) {
       const timer = setTimeout(() => {

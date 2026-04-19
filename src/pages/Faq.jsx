@@ -34,7 +34,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'Are your prices negotiable?',
-        a: 'Our prices are carefully set to reflect fair market value. However, we occasionally run promotions and launch sales — sign up for our newsletter to be the first to know.',
+        a: 'Our prices are carefully set to reflect fair market value. However, we occasionally run promotions and launch sales - sign up for our newsletter to be the first to know.',
       },
       {
         q: 'Do you offer payment plans or financing?',
@@ -60,7 +60,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'What condition are your pre-owned items in?',
-        a: 'All pre-owned items undergo a rigorous inspection process. Each listing clearly states the condition — from "Like New" to "Excellent" — with detailed photographs so you know exactly what to expect.',
+        a: 'All pre-owned items undergo a rigorous inspection process. Each listing clearly states the condition, from "Like New" to "Excellent", with detailed photographs so you know exactly what to expect.',
       },
       {
         q: 'Do you sell lab-grown diamonds?',
@@ -114,7 +114,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'What is your Trade-In programme?',
-        a: 'Trade in your current piece towards something new. We\'ll value your item and apply the amount as credit against your next purchase — often more advantageous than selling outright.',
+        a: 'Trade in your current piece towards something new. We\'ll value your item and apply the amount as credit against your next purchase, often more advantageous than selling outright.',
       },
       {
         q: 'How does the Exchange programme differ?',
@@ -170,7 +170,7 @@ export default function Faq() {
           <span className="faq-hero-tag">Support</span>
           <h1 className="faq-hero-title">Frequently Asked Questions</h1>
           <p className="faq-hero-subtitle">
-            Everything you need to know about shopping with Gold Makers — from authenticity
+            Everything you need to know about shopping with Gold Makers, from authenticity
             and shipping to our sell, trade and exchange services.
           </p>
         </div>

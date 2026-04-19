@@ -358,7 +358,7 @@ export default function Checkout() {
                 <div className="co-payment-box">
                   <div className="co-payment-header">
                     <div className="co-payment-radio"><span className="co-radio-dot" /></div>
-                    <span>PayFast — Secure Checkout</span>
+                    <span>PayFast - Secure Checkout</span>
                     <div className="co-payment-badges">
                       <span className="co-badge">Visa</span>
                       <span className="co-badge">Mastercard</span>
@@ -472,7 +472,7 @@ export default function Checkout() {
 
               <div className="co-trust">
                 <ShieldCheck size={14} />
-                <span>Secured by PayFast — PCI DSS Level 1 Compliant</span>
+                <span>Secured by PayFast - PCI DSS Level 1 Compliant</span>
               </div>
             </form>
 

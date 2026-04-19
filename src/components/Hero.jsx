@@ -33,7 +33,7 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  /* Force video play on mobile — some browsers block autoplay until interaction */
+  /* Force video play on mobile - some browsers block autoplay until interaction */
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
