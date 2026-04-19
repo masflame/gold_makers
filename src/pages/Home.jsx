@@ -56,13 +56,13 @@ export default function Home() {
             image: dualImg1,
             title: 'For Him',
             subtitle: 'Bold watches & statement pieces.',
-            link: '/shop?category=watches',
+            link: '/shop?gender=men',
           },
           {
             image: dualImg2,
             title: 'For Her',
             subtitle: 'Exquisite rings, necklaces & earrings.',
-            link: '/shop?category=rings',
+            link: '/shop?gender=women',
           },
         ]} />
 

@@ -104,6 +104,7 @@ export default function Shop() {
 
   const activeBrands = searchParams.getAll('brand');
   const activeCategories = searchParams.getAll('category');
+  const activeGender = searchParams.get('gender') || '';
   const brandsKey = activeBrands.join(',');
   const categoriesKey = activeCategories.join(',');
 
@@ -119,6 +120,11 @@ export default function Shop() {
       const catSet = new Set(activeCategories);
       result = result.filter((p) => catSet.has(p.category));
     }
+    if (activeGender) {
+      result = result.filter((p) =>
+        p.gender === activeGender || p.gender === 'unisex'
+      );
+    }
     switch (sort) {
       case 'price-asc': result.sort((a, b) => a.price - b.price); break;
       case 'price-desc': result.sort((a, b) => b.price - a.price); break;
@@ -126,18 +132,18 @@ export default function Shop() {
       default: result.sort((a, b) => b.id - a.id);
     }
     return result;
-  }, [brandsKey, categoriesKey, sort]);
+  }, [brandsKey, categoriesKey, activeGender, sort]);
 
   // Reset visible count when filters/sort change
   useEffect(() => {
     setVisibleCount(ITEMS_PER_PAGE);
-  }, [brandsKey, categoriesKey, sort]);
+  }, [brandsKey, categoriesKey, activeGender, sort]);
 
   const visibleProducts = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount]);
   const hasMore = visibleCount < filtered.length;
 
   const clearFilters = () => setSearchParams({});
-  const hasActiveFilter = activeBrands.length > 0 || activeCategories.length > 0;
+  const hasActiveFilter = activeBrands.length > 0 || activeCategories.length > 0 || !!activeGender;
 
   // Memoize filter counts
   const categoryFiltered = useMemo(() =>
@@ -166,6 +172,8 @@ export default function Shop() {
             ? brands.find((b) => b.slug === activeBrands[0])?.name || 'Jewelry'
             : activeCategories.length === 1 && activeBrands.length === 0
               ? categories.find((c) => c.id === activeCategories[0])?.name || 'Jewelry'
+              : activeGender === 'men' ? "Men's Collection"
+              : activeGender === 'women' ? "Women's Collection"
               : 'All Jewelry'}
         </h1>
         <p className="shop-count">{filtered.length} items</p>
@@ -186,6 +194,7 @@ export default function Shop() {
                   const next = new URLSearchParams();
                   prev.getAll('brand').filter(v => v !== slug).forEach(v => next.append('brand', v));
                   prev.getAll('category').forEach(v => next.append('category', v));
+                  if (prev.get('gender')) next.set('gender', prev.get('gender'));
                   return next;
                 });
               }}>
@@ -199,6 +208,7 @@ export default function Shop() {
                   const next = new URLSearchParams();
                   prev.getAll('brand').forEach(v => next.append('brand', v));
                   prev.getAll('category').filter(v => v !== id).forEach(v => next.append('category', v));
+                  if (prev.get('gender')) next.set('gender', prev.get('gender'));
                   return next;
                 });
               }}>
@@ -206,6 +216,19 @@ export default function Shop() {
                 <X size={12} />
               </button>
             ))}
+            {activeGender && (
+              <button className="active-filter-chip" onClick={() => {
+                setSearchParams(prev => {
+                  const next = new URLSearchParams();
+                  prev.getAll('brand').forEach(v => next.append('brand', v));
+                  prev.getAll('category').forEach(v => next.append('category', v));
+                  return next;
+                });
+              }}>
+                {activeGender === 'men' ? 'Men' : 'Women'}
+                <X size={12} />
+              </button>
+            )}
             <button className="shop-clear-all" onClick={clearFilters}>Clear All</button>
           </div>
         )}
@@ -251,6 +274,7 @@ export default function Shop() {
                         : [...currentBrands, b.slug];
                       newBrands.forEach(v => next.append('brand', v));
                       prev.getAll('category').forEach(v => next.append('category', v));
+                      if (prev.get('gender')) next.set('gender', prev.get('gender'));
                       return next;
                     });
                   }}
@@ -280,12 +304,40 @@ export default function Shop() {
                         ? currentCats.filter(v => v !== c.id)
                         : [...currentCats, c.id];
                       newCats.forEach(v => next.append('category', v));
+                      if (prev.get('gender')) next.set('gender', prev.get('gender'));
                       return next;
                     });
                   }}
                 >
                   <span className="filter-check">{isActive ? '✓' : ''}</span>
                   <span className="filter-label">{c.name}</span>
+                  <span className="filter-count">{count}</span>
+                </button>
+              );
+            })}
+          </FilterSection>
+
+          <FilterSection title="Gender" defaultOpen={!!activeGender}>
+            {['men', 'women'].map((g) => {
+              const label = g === 'men' ? 'Men' : 'Women';
+              const count = products.filter(p => p.gender === g || p.gender === 'unisex').length;
+              const isActive = activeGender === g;
+              return (
+                <button
+                  key={g}
+                  className={`filter-item${isActive ? ' filter-item--active' : ''}`}
+                  onClick={() => {
+                    setSearchParams(prev => {
+                      const next = new URLSearchParams();
+                      prev.getAll('brand').forEach(v => next.append('brand', v));
+                      prev.getAll('category').forEach(v => next.append('category', v));
+                      if (!isActive) next.set('gender', g);
+                      return next;
+                    });
+                  }}
+                >
+                  <span className="filter-check">{isActive ? '✓' : ''}</span>
+                  <span className="filter-label">{label}</span>
                   <span className="filter-count">{count}</span>
                 </button>
               );

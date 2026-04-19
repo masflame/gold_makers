@@ -30,6 +30,8 @@ const brandDropdown = [
 
 const categoryDropdown = [
   { label: 'All Jewelry', path: '/shop' },
+  { label: 'Men', path: '/shop?gender=men' },
+  { label: 'Women', path: '/shop?gender=women' },
   { label: 'Watches', path: '/shop?category=watches' },
   { label: 'Rings', path: '/shop?category=rings' },
   { label: 'Wedding Bands', path: '/shop?category=wedding-bands' },
