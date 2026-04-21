@@ -5,6 +5,16 @@ const MERCHANT_KEY = import.meta.env.VITE_PAYFAST_MERCHANT_KEY || '';
 const PASSPHRASE = import.meta.env.VITE_PAYFAST_PASSPHRASE || '';
 const PAYFAST_URL = import.meta.env.VITE_PAYFAST_URL || 'https://www.payfast.co.za/eng/process';
 
+function assertPayfastConfig() {
+  const missing = [];
+  if (!MERCHANT_ID) missing.push('VITE_PAYFAST_MERCHANT_ID');
+  if (!MERCHANT_KEY) missing.push('VITE_PAYFAST_MERCHANT_KEY');
+
+  if (missing.length > 0) {
+    throw new Error(`Missing PayFast config: ${missing.join(', ')}`);
+  }
+}
+
 /**
  * Equivalent of PHP's urlencode():
  *  - spaces become +
@@ -44,6 +54,8 @@ function generateSignature(data) {
  * Build the full PayFast form data object (with signature) for a checkout.
  */
 export function buildPayfastData({ items, customer, paymentId }) {
+  assertPayfastConfig();
+
   const amount = items.reduce((sum, i) => sum + i.price * i.qty, 0);
   const itemName = items.length === 1
     ? items[0].name

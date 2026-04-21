@@ -92,7 +92,15 @@ export default function Checkout() {
       email: contact.email,
       phone: contact.phone,
     };
-    const data = buildPayfastData({ items: bagProducts, customer, paymentId });
+    let data;
+    try {
+      data = buildPayfastData({ items: bagProducts, customer, paymentId });
+    } catch (err) {
+      console.error('PayFast configuration error:', err);
+      setSubmitting(false);
+      alert('Payment gateway is not configured yet. Please contact support.');
+      return;
+    }
 
     /* ── Save order to Supabase ── */
     const orderPayload = {
