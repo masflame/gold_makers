@@ -12,6 +12,7 @@ import {
 import { useBag } from '../context/BagContext';
 import { useWishlist } from '../context/WishlistContext';
 import BagDrawer from './BagDrawer';
+import gmLogo from '../assets/gm-logo.png';
 
 const navLinks = [
   { label: 'New Arrivals', path: '/new-arrivals' },
@@ -130,8 +131,7 @@ export default function Header() {
 
             {/* Center: Logo */}
             <Link to="/" className="logo">
-              <span className="logo-chromex">GOLD</span>
-              <span className="logo-360">MAKERS</span>
+              <img src={gmLogo} alt="Gold Makers" className="logo-img" />
             </Link>
 
             {/* Right: Nav links (desktop) / Hamburger (mobile) */}
