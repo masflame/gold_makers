@@ -197,9 +197,9 @@ h1, h2, h3, h4, h5, h6 {
   flex-shrink: 0;
 }
 .logo-img {
-  height: 50px;
+  height: 70px;
   width: auto;
-  max-width: 150px;
+  max-width: 180px;
   object-fit: contain;
 }
 .logo-chromex {
