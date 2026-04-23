@@ -715,7 +715,27 @@ video::-webkit-media-controls-start-playback-button {
   .category-icon-label { font-size: 16px; padding: 16px; }
 }
 @media (max-width: 480px) {
-  .category-icons-grid { grid-template-columns: 1fr; }
+  .category-icons-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+  .category-icons-grid::-webkit-scrollbar { display: none; }
+  .category-icon-card {
+    flex: 0 0 calc((100% - 8px) / 2);
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+  .category-icon-bg { aspect-ratio: 1.35 / 1; }
+  .category-icon-label {
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    padding: 10px 8px;
+  }
 }
 
 /* =========================================
@@ -4034,8 +4054,22 @@ video::-webkit-media-controls-start-playback-button {
   .section-view-all { font-size: 10px; }
 
   /* ---- Categories ---- */
-  .category-icons-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
-  .category-icon-bg { aspect-ratio: 3/4; }
+  .category-icons-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+  .category-icons-grid::-webkit-scrollbar { display: none; }
+  .category-icon-card {
+    flex: 0 0 calc((100% - 8px) / 2);
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+  .category-icon-bg { aspect-ratio: 1.35 / 1; }
   .category-icon-label { font-size: 13px; letter-spacing: 2px; padding: 12px 8px; }
 
   /* ---- Brands grid → horizontal scroll ---- */
@@ -4378,7 +4412,21 @@ video::-webkit-media-controls-start-playback-button {
   .section-header { margin-bottom: 32px; }
 
   /* ---- Categories ---- */
-  .category-icons-grid { grid-template-columns: repeat(2, 1fr); }
+  .category-icons-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+  .category-icons-grid::-webkit-scrollbar { display: none; }
+  .category-icon-card {
+    flex: 0 0 calc((100% - 10px) / 2);
+    min-width: 0;
+    scroll-snap-align: start;
+  }
   .category-icon-label { font-size: 16px; padding: 16px; }
 
   /* ---- Brands ---- */
