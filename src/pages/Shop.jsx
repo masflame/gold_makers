@@ -1,9 +1,11 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { ChevronDown, ChevronUp, SlidersHorizontal, X } from 'lucide-react';
 import { products, brands, categories } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import CustomSelect from '../components/CustomSelect';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 const ITEMS_PER_PAGE = 40;
 
@@ -30,6 +32,7 @@ function FilterSection({ title, children, defaultOpen = true }) {
 }
 
 export default function Shop() {
+  const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [sort, setSort] = useState('newest');
   const [filterOpen, setFilterOpen] = useState(false);
@@ -164,6 +167,54 @@ export default function Shop() {
   const visibleProducts = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount]);
   const hasMore = visibleCount < filtered.length;
 
+  const pageTitle = useMemo(() => {
+    if (activeBrands.length === 1) {
+      const selectedBrand = brands.find((b) => b.slug === activeBrands[0]);
+      return `${selectedBrand?.name || 'Luxury'} Collection`;
+    }
+    if (activeCategories.length === 1 && activeBrands.length === 0) {
+      const selectedCategory = categories.find((c) => c.id === activeCategories[0]);
+      return `${selectedCategory?.name || 'Jewelry'} Collection`;
+    }
+    if (activeGender === 'men') return "Men's Luxury Collection";
+    if (activeGender === 'women') return "Women's Luxury Collection";
+    return 'Luxury Watches & Fine Jewelry Shop';
+  }, [activeBrands, activeCategories, activeGender]);
+
+  const pageDescription = useMemo(() => {
+    if (activeBrands.length === 1) {
+      const selectedBrand = brands.find((b) => b.slug === activeBrands[0]);
+      return `Browse authenticated ${selectedBrand?.name || 'luxury'} watches and jewelry with secure checkout and insured delivery.`;
+    }
+    if (activeCategories.length === 1) {
+      const selectedCategory = categories.find((c) => c.id === activeCategories[0]);
+      return `Shop ${selectedCategory?.name || 'luxury jewelry'} from trusted global brands with authenticity guarantee.`;
+    }
+    return 'Explore authenticated luxury watches, rings, necklaces, bracelets, and earrings from world-renowned brands.';
+  }, [activeBrands, activeCategories]);
+
+  const canonicalSearch = useMemo(() => {
+    const canonicalParams = new URLSearchParams();
+    [...activeBrands].sort().forEach((brand) => canonicalParams.append('brand', brand));
+    [...activeCategories].sort().forEach((category) => canonicalParams.append('category', category));
+    if (activeGender === 'men' || activeGender === 'women') {
+      canonicalParams.set('gender', activeGender);
+    }
+    const query = canonicalParams.toString();
+    return query ? `?${query}` : '';
+  }, [activeBrands, activeCategories, activeGender]);
+
+  const itemListSchema = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: filtered.slice(0, 24).map((product, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: buildCanonical(`/product/${product.id}`),
+      name: `${product.brand} ${product.name}`,
+    })),
+  }), [filtered]);
+
   const clearFilters = () => setSearchParams({});
   const hasActiveFilter = activeBrands.length > 0 || activeCategories.length > 0 || !!activeGender;
 
@@ -187,6 +238,12 @@ export default function Shop() {
 
   return (
     <main className="shop-page">
+      <Seo
+        title={pageTitle}
+        description={pageDescription}
+        canonical={buildCanonical(pathname, canonicalSearch)}
+        jsonLd={itemListSchema}
+      />
       {/* Header */}
       <div className="shop-header">
         <h1 className="shop-title">

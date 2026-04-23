@@ -4,6 +4,8 @@ import { Upload, ChevronRight, Check, Banknote, ArrowLeft, Camera, X } from 'luc
 import { brands, categories, products } from '../data/products';
 import CustomSelect from '../components/CustomSelect';
 import { validatePersonalInfo, isValid } from '../utils/validate';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 const STEPS = [
   'Item Details',
@@ -224,6 +226,11 @@ export default function TradeLoan() {
 
   return (
     <div className="service-page">
+      <Seo
+        title="Luxury Trade & Loan"
+        description="Unlock short-term liquidity against your luxury watch or jewelry with secure appraisal and transparent repayment terms."
+        canonical={buildCanonical('/trade')}
+      />
       <div className="service-page-inner">
         <Link to="/" className="service-back"><ArrowLeft size={16} /> Back to Home</Link>
 

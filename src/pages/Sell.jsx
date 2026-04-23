@@ -4,6 +4,8 @@ import { Upload, ChevronRight, Check, DollarSign, ArrowLeft, Camera, X } from 'l
 import { brands, categories, products } from '../data/products';
 import CustomSelect from '../components/CustomSelect';
 import { validatePersonalInfo, isValid } from '../utils/validate';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 const STEPS = [
   'Item Details',
@@ -214,6 +216,11 @@ export default function Sell() {
 
   return (
     <div className="service-page">
+      <Seo
+        title="Sell Your Watch or Jewelry"
+        description="Submit your luxury watch or jewelry for a market-based valuation with secure, insured collection and fast payout."
+        canonical={buildCanonical('/sell')}
+      />
       <div className="service-page-inner">
         <Link to="/" className="service-back"><ArrowLeft size={16} /> Back to Home</Link>
 

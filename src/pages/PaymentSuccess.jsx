@@ -4,6 +4,8 @@ import { Check, ShoppingBag, ArrowRight, Mail, Package, Shield } from 'lucide-re
 import { useBag } from '../context/BagContext';
 import { products, formatPrice } from '../data/products';
 import { supabase } from '../utils/supabase';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 export default function PaymentSuccess() {
   const { clearBag } = useBag();
@@ -54,6 +56,12 @@ export default function PaymentSuccess() {
 
   return (
     <main className="pr-page">
+      <Seo
+        title="Payment Successful"
+        description="Your Gold Makers payment was successful and your order is being prepared."
+        canonical={buildCanonical('/payment/success')}
+        noindex
+      />
       <div className="pr-container">
         {/* Hero confirmation */}
         <div className="pr-hero">

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, Shield, Truck, CreditCard, RefreshCw, Watch, Gem, HelpCircle } from 'lucide-react';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 const FAQ_SECTIONS = [
   {
@@ -162,8 +164,29 @@ function FaqItem({ q, a }) {
 }
 
 export default function Faq() {
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_SECTIONS.flatMap((section) =>
+      section.items.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a,
+        },
+      }))
+    ),
+  };
+
   return (
     <main className="faq-page">
+      <Seo
+        title="Frequently Asked Questions"
+        description="Find answers about shipping, authenticity, payments, warranties, returns, and Gold Makers sell, trade, and exchange services."
+        canonical={buildCanonical('/faq')}
+        jsonLd={faqSchema}
+      />
       {/* Hero */}
       <section className="faq-hero">
         <div className="faq-hero-content">

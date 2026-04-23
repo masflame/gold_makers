@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
 import useScrollEngine from './hooks/useScrollEngine';
 import useVisitorTracker from './hooks/useVisitorTracker';
@@ -18,6 +18,7 @@ const Checkout = lazy(() => import('./pages/Checkout'));
 const PaymentSuccess = lazy(() => import('./pages/PaymentSuccess'));
 const PaymentCancel = lazy(() => import('./pages/PaymentCancel'));
 const Faq = lazy(() => import('./pages/Faq'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function ScrollToTop() {
   const { pathname, search } = useLocation();
@@ -45,8 +46,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/brands" element={<Shop />} />
-          <Route path="/new-arrivals" element={<Shop />} />
+          <Route path="/brands" element={<Navigate to="/shop" replace />} />
+          <Route path="/new-arrivals" element={<Navigate to="/shop" replace />} />
           <Route path="/sell" element={<Sell />} />
           <Route path="/trade" element={<TradeLoan />} />
           <Route path="/exchange" element={<Exchange />} />
@@ -56,7 +57,7 @@ function App() {
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/cancel" element={<PaymentCancel />} />
           <Route path="/faq" element={<Faq />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
       <Footer />

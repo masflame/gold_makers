@@ -4,6 +4,8 @@ import { Upload, ChevronRight, Check, ArrowLeftRight, ArrowLeft, Camera, X } fro
 import { brands, categories, products } from '../data/products';
 import CustomSelect from '../components/CustomSelect';
 import { validatePersonalInfo, isValid } from '../utils/validate';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 const STEPS = [
   'Your Item',
@@ -223,6 +225,11 @@ export default function Exchange() {
 
   return (
     <div className="service-page">
+      <Seo
+        title="Exchange Your Watch or Jewelry"
+        description="Trade your current luxury piece toward another item in our collection with fair valuation and concierge support."
+        canonical={buildCanonical('/exchange')}
+      />
       <div className="service-page-inner">
         <Link to="/" className="service-back"><ArrowLeft size={16} /> Back to Home</Link>
 

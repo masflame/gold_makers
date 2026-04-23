@@ -5,6 +5,8 @@ import { products, formatPrice } from '../data/products';
 import { useBag } from '../context/BagContext';
 import { useWishlist } from '../context/WishlistContext';
 import ProductCard from '../components/ProductCard';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 const typeIcons = {
   watch: (size) => (
@@ -92,6 +94,12 @@ export default function ProductDetail() {
   if (!product) {
     return (
       <div className="pdp-not-found">
+        <Seo
+          title="Product Not Found"
+          description="This product is no longer available. Explore our latest luxury watches and fine jewelry collections."
+          canonical={buildCanonical('/shop')}
+          noindex
+        />
         <h2>Product not found</h2>
         <p>The item you're looking for doesn't exist or has been removed.</p>
         <Link to="/shop" className="pdp-back-link">Back to Shop</Link>
@@ -109,9 +117,40 @@ export default function ProductDetail() {
     .slice(0, 4);
 
   const categoryLabel = product.category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  const canonical = buildCanonical(`/product/${product.id}`);
+  const productDescription = `Shop the ${product.brand} ${product.name}${product.ref ? ` Ref. ${product.ref}` : ''}. ${product.condition} condition${product.material ? `, ${product.material}` : ''}, authenticated by Gold Makers.`;
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${product.brand} ${product.name}`,
+    image: gallery.length ? gallery.slice(0, 8) : undefined,
+    brand: {
+      '@type': 'Brand',
+      name: product.brand,
+    },
+    sku: String(product.id),
+    category: categoryLabel,
+    description: productDescription,
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: product.currency || 'ZAR',
+      price: String(product.price),
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/UsedCondition',
+      url: canonical,
+    },
+  };
 
   return (
     <div className={`pdp${isWatch ? ' pdp--watch' : ''}`}>
+      <Seo
+        title={`${product.brand} ${product.name}`}
+        description={productDescription}
+        canonical={canonical}
+        image={gallery[0] || undefined}
+        type="product"
+        jsonLd={productSchema}
+      />
       {/* Back button */}
       <button className="pdp-back" onClick={() => navigate(-1)}>
         <ArrowLeft size={16} />

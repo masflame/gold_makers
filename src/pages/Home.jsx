@@ -8,6 +8,8 @@ import Newsletter from '../components/Newsletter';
 import EditorialSplit from '../components/EditorialSplit';
 import VideoShowcase from '../components/VideoShowcase';
 import DualCards from '../components/DualCards';
+import Seo from '../components/Seo';
+import { buildCanonical, buildOrganizationSchema, buildWebsiteSchema } from '../config/seo';
 
 /* ── Placeholder media - swap these for your actual files ── */
 import editorialImg1 from '../assets/background/Quality.jpg';
@@ -20,8 +22,16 @@ import dualImg1 from '../assets/cards/Sell.jpg';
 import dualImg2 from '../assets/cards/Trade.jpg';
 
 export default function Home() {
+  const canonical = buildCanonical('/');
+
   return (
     <main>
+      <Seo
+        title="Luxury Watches & Fine Jewelry"
+        description="Discover authenticated luxury watches, engagement rings, wedding bands, necklaces, bracelets, and earrings from world-renowned houses."
+        canonical={canonical}
+        jsonLd={[buildOrganizationSchema(), buildWebsiteSchema()]}
+      />
       <Hero />
       {/* Content slides over the sticky hero like a curtain */}
       <div className="scroll-curtain">

@@ -2,6 +2,8 @@ import { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { X, ArrowLeft, ShoppingBag, Shield } from 'lucide-react';
 import { supabase } from '../utils/supabase';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 export default function PaymentCancel() {
   const order = useMemo(() => {
@@ -26,6 +28,12 @@ export default function PaymentCancel() {
 
   return (
     <main className="pr-page">
+      <Seo
+        title="Payment Cancelled"
+        description="Payment was not completed. Return to checkout to continue your purchase securely."
+        canonical={buildCanonical('/payment/cancel')}
+        noindex
+      />
       <div className="pr-container">
         {/* Hero */}
         <div className="pr-hero">

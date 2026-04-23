@@ -3,6 +3,8 @@ import { Heart, Trash2 } from 'lucide-react';
 import { products, formatPrice } from '../data/products';
 import { useWishlist } from '../context/WishlistContext';
 import ProductCard from '../components/ProductCard';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 export default function Wishlist() {
   const { ids, clear } = useWishlist();
@@ -10,6 +12,12 @@ export default function Wishlist() {
 
   return (
     <main className="wishlist-page">
+      <Seo
+        title="Your Wishlist"
+        description="Review and manage your saved luxury watches and jewelry pieces."
+        canonical={buildCanonical('/wishlist')}
+        noindex
+      />
       <div className="wishlist-inner">
         <div className="wishlist-header">
           <h1 className="wishlist-title">Your Wishlist</h1>

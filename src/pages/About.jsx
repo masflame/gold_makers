@@ -6,6 +6,8 @@ import authenticityBg from '../assets/background/Authenticit.jpg';
 import qualityBg from '../assets/background/Quality.jpg';
 import clientBg from '../assets/background/Client .mp4';
 import timelessBg from '../assets/background/Timeless .mp4';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 const VALUES = [
   { icon: Shield, title: 'Authenticity Guaranteed', desc: 'Every piece is meticulously verified by our in-house experts before it reaches you.', bg: authenticityBg, type: 'image' },
@@ -26,6 +28,11 @@ const MILESTONES = [
 export default function About() {
   return (
     <main className="about-page">
+      <Seo
+        title="About Gold Makers"
+        description="Learn how Gold Makers sources, authenticates, and curates luxury watches and fine jewelry with expert verification and client-first service."
+        canonical={buildCanonical('/about')}
+      />
       {/* Hero */}
       <section className="about-hero">
         <video className="about-hero-video" src={aboutVideo} autoPlay loop muted playsInline webkit-playsinline="" disablePictureInPicture preload="auto" />

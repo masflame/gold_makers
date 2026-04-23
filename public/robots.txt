@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /checkout
+Disallow: /wishlist
+Disallow: /payment/
+
+Sitemap: https://www.goldmakers.co.za/sitemap.xml

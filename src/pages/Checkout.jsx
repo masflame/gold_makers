@@ -5,6 +5,8 @@ import { useBag } from '../context/BagContext';
 import { products, formatPrice } from '../data/products';
 import { buildPayfastData, PAYFAST_URL } from '../utils/payfast';
 import { supabase } from '../utils/supabase';
+import Seo from '../components/Seo';
+import { buildCanonical } from '../config/seo';
 
 const SA_PROVINCES = [
   'Eastern Cape', 'Free State', 'Gauteng', 'KwaZulu-Natal',
@@ -41,6 +43,12 @@ export default function Checkout() {
   if (bagProducts.length === 0) {
     return (
       <main className="co-page">
+        <Seo
+          title="Checkout"
+          description="Complete your Gold Makers order securely with insured delivery and trusted payment processing."
+          canonical={buildCanonical('/checkout')}
+          noindex
+        />
         <div className="co-container">
           <h1 className="co-page-title">CHECKOUT</h1>
           <div className="co-empty">
@@ -198,6 +206,12 @@ export default function Checkout() {
 
   return (
     <main className="co-page">
+      <Seo
+        title="Checkout"
+        description="Complete your Gold Makers order securely with insured delivery and trusted payment processing."
+        canonical={buildCanonical('/checkout')}
+        noindex
+      />
       <div className="co-container">
         {/* ── Page header ── */}
         <h1 className="co-page-title">CHECKOUT</h1>
