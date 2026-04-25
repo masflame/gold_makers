@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Search,
   ShoppingBag,
@@ -8,9 +8,11 @@ import {
   User,
   Heart,
   ChevronDown,
+  LogOut,
 } from 'lucide-react';
 import { useBag } from '../context/BagContext';
 import { useWishlist } from '../context/WishlistContext';
+import { useAuth } from '../context/AuthContext';
 import BagDrawer from './BagDrawer';
 import gmLogo from '../assets/gm-logo.png';
 
@@ -48,12 +50,33 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const headerRef = useRef(null);
   const pinnedRef = useRef(false);
   const visibleRef = useRef(false);
+  const accountMenuRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
   const { totalItems, setDrawerOpen } = useBag();
   const { count: wishlistCount } = useWishlist();
+  const { user, signOut, loading: authLoading } = useAuth();
+
+  /* Close account dropdown when clicking outside */
+  useEffect(() => {
+    function handleOutsideClick(ev) {
+      if (accountMenuRef.current && !accountMenuRef.current.contains(ev.target)) {
+        setAccountMenuOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
+
+  async function handleSignOut() {
+    setAccountMenuOpen(false);
+    await signOut();
+    navigate('/sign-in');
+  }
 
   useEffect(() => {
     let ticking = false;
@@ -120,9 +143,40 @@ export default function Header() {
                 <Heart size={18} strokeWidth={1.5} />
                 {wishlistCount > 0 && <span className="cart-badge">{wishlistCount}</span>}
               </Link>
-              <Link to="/account" className="header-icon desktop-only" aria-label="Account">
-                <User size={18} strokeWidth={1.5} />
-              </Link>
+
+              {/* Account icon / dropdown */}
+              {!authLoading && (
+                user ? (
+                  <div className="header-account-wrap desktop-only" ref={accountMenuRef}>
+                    <button
+                      className="header-icon"
+                      aria-label="My account"
+                      onClick={() => setAccountMenuOpen((o) => !o)}
+                    >
+                      <User size={18} strokeWidth={1.5} />
+                    </button>
+                    {accountMenuOpen && (
+                      <div className="header-account-dropdown">
+                        <Link
+                          to="/account"
+                          className="header-account-item"
+                          onClick={() => setAccountMenuOpen(false)}
+                        >
+                          My Account
+                        </Link>
+                        <button className="header-account-item header-account-item--danger" onClick={handleSignOut}>
+                          <LogOut size={13} strokeWidth={1.5} style={{ marginRight: 6 }} />
+                          Sign Out
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link to="/sign-in" className="header-icon desktop-only" aria-label="Sign in">
+                    <User size={18} strokeWidth={1.5} />
+                  </Link>
+                )
+              )}
               <button className="header-icon" aria-label="Bag" onClick={() => setDrawerOpen(true)}>
                 <ShoppingBag size={18} strokeWidth={1.5} />
                 {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
@@ -235,7 +289,21 @@ export default function Header() {
           ))}
           <div className="mobile-nav-divider" />
           <Link to="/wishlist" className="mobile-nav-link">Wishlist</Link>
-          <Link to="/account" className="mobile-nav-link">Account</Link>
+          {!authLoading && (
+            user ? (
+              <>
+                <Link to="/account" className="mobile-nav-link">My Account</Link>
+                <button
+                  className="mobile-nav-link mobile-nav-link--btn"
+                  onClick={handleSignOut}
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <Link to="/sign-in" className="mobile-nav-link">Sign In</Link>
+            )
+          )}
         </nav>
       </div>
 

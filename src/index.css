@@ -425,6 +425,62 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-body);
   color: rgba(255,255,255,0.5);
 }
+.mobile-nav-link--btn {
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255,100,100,0.8);
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  letter-spacing: 1px;
+}
+
+/* ── Header account dropdown ── */
+.header-account-wrap {
+  position: relative;
+}
+.header-account-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 160px;
+  background: var(--black);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 300;
+  animation: navDropReveal 0.2s cubic-bezier(0.16,1,0.3,1);
+}
+.header-account-item {
+  display: flex;
+  align-items: center;
+  padding: 9px 14px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.7);
+  border-radius: 5px;
+  transition: background 0.15s, color 0.15s;
+  text-align: left;
+  width: 100%;
+}
+.header-account-item:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+}
+.header-account-item--danger {
+  color: rgba(255,120,120,0.8);
+}
+.header-account-item--danger:hover {
+  background: rgba(255,80,80,0.1);
+  color: #ff8888;
+}
 
 @media (max-width: 768px) {
   .desktop-only { display: none !important; }
