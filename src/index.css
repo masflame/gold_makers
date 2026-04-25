@@ -4987,6 +4987,48 @@ html.lenis, html.lenis body {
   color: var(--text-muted, #707070);
   margin-bottom: 14px;
 }
+.co-section-note--static {
+  display: block;
+  line-height: 1.55;
+}
+
+.co-auth-choice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.co-auth-choice-btn {
+  border: 1px solid #d3d3d3;
+  background: #fff;
+  color: var(--black);
+  padding: 12px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.co-auth-choice-btn:hover {
+  border-color: #000;
+}
+
+.co-auth-choice-btn--primary {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+
+.co-auth-choice-btn--primary:hover {
+  background: #1b1b1b;
+}
+
+.co-auth-choice-btn--active {
+  border-color: #000;
+  background: #f8f8f8;
+}
 
 /* ── Fields ── */
 .co-field {
@@ -5432,6 +5474,9 @@ html.lenis, html.lenis body {
   }
   .co-submit {
     font-size: 15px;
+  }
+  .co-auth-choice {
+    grid-template-columns: 1fr;
   }
   .co-container {
     max-width: 100%;

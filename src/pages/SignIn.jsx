@@ -9,6 +9,8 @@ export default function SignIn() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, signInWithEmail, signInWithGoogle, hasClient } = useAuth();
+  const requestedNext = new URLSearchParams(location.search).get('next');
+  const nextPath = requestedNext && requestedNext.startsWith('/') ? requestedNext : '/account';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,9 +19,9 @@ export default function SignIn() {
 
   useEffect(() => {
     if (user) {
-      navigate('/account', { replace: true });
+      navigate(nextPath, { replace: true });
     }
-  }, [navigate, user]);
+  }, [navigate, nextPath, user]);
 
   async function handleSubmit(ev) {
     ev.preventDefault();
@@ -39,13 +41,13 @@ export default function SignIn() {
       return;
     }
 
-    navigate('/account', { replace: true });
+    navigate(nextPath, { replace: true });
   }
 
   async function handleGoogleSignIn() {
     setErrorMessage('');
     setBusy(true);
-    const { error } = await signInWithGoogle();
+    const { error } = await signInWithGoogle(nextPath);
     setBusy(false);
 
     if (error) {

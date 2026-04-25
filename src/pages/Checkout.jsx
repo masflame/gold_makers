@@ -1,7 +1,8 @@
-import { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShieldCheck, Lock, ChevronRight, Truck, ChevronDown } from 'lucide-react';
 import { useBag } from '../context/BagContext';
+import { useAuth } from '../context/AuthContext';
 import { products, formatPrice } from '../data/products';
 import { buildPayfastData, PAYFAST_URL } from '../utils/payfast';
 import { supabase } from '../utils/supabase';
@@ -14,10 +15,13 @@ const SA_PROVINCES = [
 ];
 
 export default function Checkout() {
+  const navigate = useNavigate();
   const { items } = useBag();
+  const { user, loading: authLoading } = useAuth();
   const formRef = useRef(null);
 
   const [contact, setContact] = useState({ email: '', phone: '' });
+  const [checkoutMode, setCheckoutMode] = useState(null);
   const [delivery, setDelivery] = useState({
     firstName: '', lastName: '', company: '',
     address: '', apartment: '', city: '',
@@ -39,6 +43,17 @@ export default function Checkout() {
 
   const subtotal = bagProducts.reduce((sum, p) => sum + p.price * p.qty, 0);
   const totalItems = bagProducts.reduce((sum, p) => sum + p.qty, 0);
+  const isSignedIn = !!user;
+  const canProceedAsGuest = checkoutMode === 'guest';
+
+  useEffect(() => {
+    if (user?.email) {
+      setContact((prev) => ({ ...prev, email: user.email }));
+      setCheckoutMode('signed-in');
+    } else {
+      setCheckoutMode((prev) => (prev === 'signed-in' ? null : prev));
+    }
+  }, [user]);
 
   if (bagProducts.length === 0) {
     return (
@@ -63,6 +78,10 @@ export default function Checkout() {
 
   function validate() {
     const e = {};
+    if (!isSignedIn && !canProceedAsGuest) {
+      e['checkout.mode'] = 'Choose Sign In or Continue as Guest to proceed.';
+      return e;
+    }
     if (!contact.email.trim()) e['contact.email'] = 'Email is required';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)) e['contact.email'] = 'Invalid email';
     if (contact.phone && !/^0\d{9}$/.test(contact.phone.replace(/\s/g, '')))
@@ -97,7 +116,7 @@ export default function Checkout() {
     const customer = {
       firstName: delivery.firstName,
       lastName: delivery.lastName,
-      email: contact.email,
+      email: user?.email || contact.email,
       phone: contact.phone,
     };
     let data;
@@ -115,7 +134,7 @@ export default function Checkout() {
       order_id: paymentId,
       first_name: delivery.firstName,
       last_name: delivery.lastName,
-      email: contact.email,
+      email: user?.email || contact.email,
       contact: contact.phone || '',
       item: JSON.stringify(
         bagProducts.map(p => ({
@@ -245,6 +264,44 @@ export default function Checkout() {
           <div className="co-main">
             <form className="co-form" onSubmit={handleSubmit} noValidate>
 
+              {!authLoading && !isSignedIn && (
+                <section className="co-section">
+                  <h2 className="co-section-heading">ORDER TRACKING</h2>
+                  <p className="co-section-note co-section-note--static">
+                    Sign in to link this order to your account and view order history later, or continue as a guest.
+                  </p>
+                  <div className="co-auth-choice">
+                    <button
+                      type="button"
+                      className="co-auth-choice-btn co-auth-choice-btn--primary"
+                      onClick={() => navigate('/sign-in?next=/checkout')}
+                    >
+                      Sign In For Order History
+                    </button>
+                    <button
+                      type="button"
+                      className={`co-auth-choice-btn ${canProceedAsGuest ? 'co-auth-choice-btn--active' : ''}`}
+                      onClick={() => {
+                        setCheckoutMode('guest');
+                        setErrors((prev) => ({ ...prev, 'checkout.mode': '' }));
+                      }}
+                    >
+                      Continue as Guest
+                    </button>
+                  </div>
+                  {errors['checkout.mode'] && <span className="co-field-error">{errors['checkout.mode']}</span>}
+                </section>
+              )}
+
+              {!authLoading && isSignedIn && (
+                <section className="co-section">
+                  <h2 className="co-section-heading">ORDER TRACKING</h2>
+                  <p className="co-section-note co-section-note--static">
+                    Signed in as <strong>{user.email}</strong>. This order will be tied to your account history.
+                  </p>
+                </section>
+              )}
+
               {/* Contact Information */}
               <section className="co-section">
                 <h2 className="co-section-heading">CONTACT INFORMATION</h2>
@@ -255,7 +312,8 @@ export default function Checkout() {
                     autoComplete="email"
                     value={contact.email}
                     onChange={ev => { setContact(p => ({ ...p, email: ev.target.value })); setErrors(p => ({ ...p, 'contact.email': '' })); }}
-                    className={fieldErr('contact.email')}
+                    disabled={isSignedIn}
+                    className={`${fieldErr('contact.email')} ${isSignedIn ? 'co-input--disabled' : ''}`.trim()}
                   />
                   {errors['contact.email'] && <span className="co-field-error">{errors['contact.email']}</span>}
                 </div>

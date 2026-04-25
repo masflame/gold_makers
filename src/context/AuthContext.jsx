@@ -194,15 +194,19 @@ export function AuthProvider({ children }) {
         password,
       });
     },
-    signInWithGoogle: async () => {
+    signInWithGoogle: async (nextPath = '/account') => {
       if (!accountSupabase) {
         return { error: new Error('Account service is not configured.') };
       }
 
+      const safeNextPath = typeof nextPath === 'string' && nextPath.startsWith('/')
+        ? nextPath
+        : '/account';
+
       return accountSupabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/account`,
+          redirectTo: `${window.location.origin}${safeNextPath}`,
         },
       });
     },
