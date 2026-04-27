@@ -18,6 +18,92 @@ function slugify(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
+function hashString(input) {
+  let h = 2166136261;
+  for (let i = 0; i < input.length; i++) {
+    h ^= input.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function clamp(n, min, max) {
+  return Math.max(min, Math.min(max, n));
+}
+
+function pickDeterministic(min, max, key, step = 100) {
+  const low = Math.ceil(min / step) * step;
+  const high = Math.floor(max / step) * step;
+  if (high <= low) return low;
+  const count = Math.floor((high - low) / step) + 1;
+  return low + (hashString(key) % count) * step;
+}
+
+function spreadAround(rawPrice, min, max, key, step = 100, pct = 0.22) {
+  const midpoint = Math.round((min + max) / 2 / step) * step;
+  const center = clamp(rawPrice || midpoint, min, max);
+  const delta = Math.max(step, Math.round((center * pct) / step) * step);
+  const low = clamp(center - delta, min, max);
+  const high = clamp(center + delta, min, max);
+  return pickDeterministic(low, high, key, step);
+}
+
+function isBadProductName(name = '') {
+  const n = name.toLowerCase().trim();
+  if (!n) return true;
+  if (n.length < 3) return true;
+  if (/^index(?:[.\s_-]*htm(?:l)?)?$/i.test(n)) return true;
+  if (/^index(?:[.\s_-]*htm(?:l)?)?\b/i.test(n)) return true;
+  if (n.includes('chrono24')) return true;
+  if (/^new folder\s*\(?\d*\)?$/.test(n)) return true;
+  return false;
+}
+
+function extractReferenceFromAsset(assetFilename = '') {
+  const base = assetFilename
+    .replace(/\.[^.]+$/, '')
+    .replace(/-(?:Square|Width|ExtraLarge)\d*$/i, '')
+    .trim();
+
+  const refMatch = base.match(/^([a-z]{1,4}[_-]?\d{3,8}|\d{6,10})(?=$|[-_])/i);
+  if (!refMatch) return null;
+
+  const ref = refMatch[1].replace(/[_-]+/g, ' ').trim();
+  if (!ref) return null;
+  if (/^\d+$/.test(ref)) return ref;
+  return ref.toUpperCase();
+}
+
+function normalizeJewelleryPrice(categoryId, type, name, rawPrice, brand, variantKey = '') {
+  const key = `${categoryId}|${type}|${brand}|${name}|${rawPrice}|${variantKey}`;
+  const n = (name || '').toLowerCase();
+
+  if (categoryId === 'wedding-bands') {
+    if (n.includes('full') && n.includes('eternity')) return pickDeterministic(15500, 23500, key, 100);
+    if (n.includes('eternity')) return pickDeterministic(12000, 19500, key, 100);
+    if (n.includes('princess') || n.includes('channel') || n.includes('pave')) return pickDeterministic(9000, 16500, key, 100);
+    if (n.includes('bar set') || n.includes('bezel') || n.includes('prong')) return pickDeterministic(8000, 14500, key, 100);
+    if (n.includes('curved') || n.includes('braided') || n.includes('twisted') || n.includes('straight')) return pickDeterministic(7000, 13000, key, 100);
+    return spreadAround(rawPrice, 8500, 18000, key, 100, 0.28);
+  }
+
+  if (categoryId === 'rings') {
+    if (n.includes('platinum')) return pickDeterministic(32000, 60000, key, 100);
+    if (n.includes('hidden halo') || n.includes('halo')) return pickDeterministic(22000, 42000, key, 100);
+    if (n.includes('solitaire') || n.includes('solitair')) return pickDeterministic(18000, 36000, key, 100);
+    if (n.includes('vintage') || n.includes('trilogy') || n.includes('trillogy') || n.includes('3 stone')) return pickDeterministic(20000, 38000, key, 100);
+    if (n.includes('cluster') || n.includes('flower') || n.includes('star')) return pickDeterministic(17000, 32000, key, 100);
+    return spreadAround(rawPrice, 19000, 42000, key, 100, 0.24);
+  }
+
+  if (categoryId === 'necklaces') return spreadAround(rawPrice, 7000, 62000, key, 100, 0.2);
+  if (categoryId === 'pendants') return spreadAround(rawPrice, 6000, 52000, key, 100, 0.2);
+  if (categoryId === 'earrings') return spreadAround(rawPrice, 5500, 42000, key, 100, 0.2);
+  if (categoryId === 'bracelets') return spreadAround(rawPrice, 6500, 85000, key, 100, 0.2);
+
+  return rawPrice;
+}
+
 function cleanProductName(raw) {
   return raw.replace(/\s*\|.*$/i, '').trim();
 }
@@ -204,7 +290,11 @@ function nameFromAsset(assetFilename, fallbackBrand) {
     .replace(/[-_]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
-  if (name.length < 3) return fallbackBrand;
+  if (isBadProductName(name)) {
+    const reference = extractReferenceFromAsset(assetFilename);
+    if (reference) return `Reference ${reference}`;
+    return fallbackBrand;
+  }
   return name.replace(/\b\w/g, c => c.toUpperCase());
 }
 
@@ -216,7 +306,7 @@ function nameFromFolder(folderName, fallbackBrand) {
     .replace(/[-_]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
-  if (name.length < 3) return fallbackBrand;
+  if (isBadProductName(name)) return fallbackBrand;
   return name.replace(/\b\w/g, c => c.toUpperCase());
 }
 
@@ -351,15 +441,21 @@ for (const [folderName, catInfo] of Object.entries(CATEGORY_FOLDERS)) {
     // Name: prefer JSON product_name, then folder name, then asset filename
     let name;
     if (bestRow) {
-      const rawName = (bestRow.product_name || '').trim();
-      if (rawName && !rawName.includes('Chrono24') && !rawName.includes('chrono24') && rawName.length > 3) {
-        name = cleanProductName(rawName);
+      const rawName = cleanProductName((bestRow.product_name || '').trim());
+      if (!isBadProductName(rawName)) {
+        name = rawName;
       } else {
-        // Try folder name, then asset filename
-        name = nameFromFolder(folderBasename, null) || nameFromFolder(parentBasename, null) || nameFromAsset(images[0].filename, brand);
+        // Try folder names first; if they are bad (e.g. index-htm), fall back to brand.
+        name = nameFromFolder(folderBasename, null)
+          || nameFromFolder(parentBasename, null)
+          || nameFromAsset(images[0].filename, null)
+          || brand;
       }
     } else {
-      name = nameFromFolder(folderBasename, null) || nameFromFolder(parentBasename, null) || nameFromAsset(images[0].filename, brand);
+      name = nameFromFolder(folderBasename, null)
+        || nameFromFolder(parentBasename, null)
+        || nameFromAsset(images[0].filename, null)
+        || brand;
     }
     if (!name) name = brand;
 
@@ -368,8 +464,12 @@ for (const [folderName, catInfo] of Object.entries(CATEGORY_FOLDERS)) {
 
     // Price
     const rawPrice = bestRow ? parseFloat((bestRow.price || '0').toString().replace(/[^0-9.]/g, '')) || 0 : 0;
-    const price = rawPrice >= 100 ? Math.round(rawPrice) : 0;
+    let price = rawPrice >= 100 ? Math.round(rawPrice) : 0;
     if (price === 0) continue;
+    if (catInfo.id !== 'watches') {
+      const variantKey = `${folderBasename}|${parentBasename}|${images[0]?.filename || ''}`;
+      price = normalizeJewelleryPrice(catInfo.id, catInfo.type, name, price, brand, variantKey);
+    }
 
     // Condition
     const condition = bestRow && (bestRow.product_description || '').toLowerCase().includes('pre-owned') ? 'Pre-owned' : 'New';
