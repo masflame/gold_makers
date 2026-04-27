@@ -1,6 +1,6 @@
 /**
  * Add launch sale prices to products.js
- * Adds `originalPrice` and `salePercent` fields to ~80% of products.
+ * Adds `originalPrice` and `salePercent` fields to a curated subset of products.
  * The current `price` becomes the sale price; `originalPrice` is the higher pre-sale price.
  *
  * Discount tiers:
@@ -51,6 +51,26 @@ function getSalePercent(price, type, brand) {
   return pickPercent(32, 45);
 }
 
+function shouldItemBeOnSale(price, type, brand) {
+  // Keep premium inventory mostly full-price to preserve exclusivity and trust.
+  const ultraPremium = ['Richard Mille', 'Patek Philippe', 'Audemars Piguet'];
+  const premium = ['Rolex', 'Cartier', 'Van Cleef & Arpels', 'Hublot', 'Omega', 'Panerai'];
+
+  if (type === 'watch') {
+    if (ultraPremium.includes(brand)) return rand() < 0.16;
+    if (premium.includes(brand)) return rand() < 0.24;
+    if (price > 250000) return rand() < 0.22;
+    if (price > 100000) return rand() < 0.30;
+    if (price > 50000) return rand() < 0.38;
+    return rand() < 0.45;
+  }
+
+  if (price > 50000) return rand() < 0.26;
+  if (price > 25000) return rand() < 0.34;
+  if (price > 12000) return rand() < 0.42;
+  return rand() < 0.50;
+}
+
 function roundPrice(price) {
   // Round up to nearest 100
   return Math.ceil(price / 100) * 100;
@@ -67,8 +87,8 @@ while ((match = blockRe.exec(src)) !== null) {
   const id = +idStr;
   const currentPrice = +priceStr;
 
-  // ~85% of items go on sale
-  if (rand() < 0.15) continue;
+  // Use curated sale coverage instead of near-sitewide discounts.
+  if (!shouldItemBeOnSale(currentPrice, type, brand)) continue;
 
   const pct = getSalePercent(currentPrice, type, brand);
   // originalPrice = currentPrice / (1 - pct/100)  →  current price IS the sale price
