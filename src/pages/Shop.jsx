@@ -112,6 +112,28 @@ export default function Shop() {
   const categoriesKey = activeCategories.join(',');
 
   const filtered = useMemo(() => {
+    const getImageCount = (product) => {
+      if (Array.isArray(product.images)) return product.images.length;
+      return product.image ? 1 : 0;
+    };
+
+    const compareImagePriority = (a, b) => {
+      const aCount = getImageCount(a);
+      const bCount = getImageCount(b);
+      const aPrioritized = aCount > 3;
+      const bPrioritized = bCount > 3;
+
+      if (aPrioritized !== bPrioritized) {
+        return bPrioritized ? 1 : -1;
+      }
+
+      if (aPrioritized && bPrioritized && aCount !== bCount) {
+        return bCount - aCount;
+      }
+
+      return 0;
+    };
+
     let result = [...products];
     if (activeBrands.length > 0) {
       const brandSet = new Set(activeBrands);
@@ -129,14 +151,16 @@ export default function Shop() {
       );
     }
     switch (sort) {
-      case 'price-asc': result.sort((a, b) => a.price - b.price); break;
-      case 'price-desc': result.sort((a, b) => b.price - a.price); break;
-      case 'brand-asc': result.sort((a, b) => a.brand.localeCompare(b.brand)); break;
+      case 'price-asc': result.sort((a, b) => compareImagePriority(a, b) || a.price - b.price); break;
+      case 'price-desc': result.sort((a, b) => compareImagePriority(a, b) || b.price - a.price); break;
+      case 'brand-asc': result.sort((a, b) => compareImagePriority(a, b) || a.brand.localeCompare(b.brand)); break;
       default: {
         const onlyWatches = activeCategories.length === 1 && activeCategories.includes('watches');
         const noSpecificBrand = activeBrands.length === 0;
         if (!onlyWatches && noSpecificBrand) {
           result.sort((a, b) => {
+            const imagePriority = compareImagePriority(a, b);
+            if (imagePriority !== 0) return imagePriority;
             if (a.category === 'watches' && b.category === 'watches') return b.id - a.id;
             if (a.category !== 'watches' && b.category !== 'watches') {
               const ac = a.brand === 'Cartier' ? 0 : 1;
@@ -146,7 +170,7 @@ export default function Shop() {
             return b.id - a.id;
           });
         } else {
-          result.sort((a, b) => b.id - a.id);
+          result.sort((a, b) => compareImagePriority(a, b) || b.id - a.id);
         }
         break;
       }
